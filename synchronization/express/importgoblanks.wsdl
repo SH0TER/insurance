@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://e-insurance.in.ua/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://e-insurance.in.ua/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://e-insurance.in.ua/">
+      <s:element name="getGOBlanksAktByNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGOBlanksAktByNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGOBlanksAktByNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGOBlanksAktByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="from" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="to" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGOBlanksAktByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGOBlanksAktByDatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGOReturnBlanksAktByNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGOReturnBlanksAktByNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGOReturnBlanksAktByNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGOReturnBlanksAktByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="from" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="to" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGOReturnBlanksAktByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGOReturnBlanksAktByDatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getGOBlanksAktByNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:getGOBlanksAktByNumber" />
+  </wsdl:message>
+  <wsdl:message name="getGOBlanksAktByNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:getGOBlanksAktByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGOBlanksAktByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:getGOBlanksAktByDates" />
+  </wsdl:message>
+  <wsdl:message name="getGOBlanksAktByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:getGOBlanksAktByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGOReturnBlanksAktByNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:getGOReturnBlanksAktByNumber" />
+  </wsdl:message>
+  <wsdl:message name="getGOReturnBlanksAktByNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:getGOReturnBlanksAktByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGOReturnBlanksAktByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:getGOReturnBlanksAktByDates" />
+  </wsdl:message>
+  <wsdl:message name="getGOReturnBlanksAktByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:getGOReturnBlanksAktByDatesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ImportGOBlanksServiceSoap">
+    <wsdl:operation name="getGOBlanksAktByNumber">
+      <wsdl:input message="tns:getGOBlanksAktByNumberSoapIn" />
+      <wsdl:output message="tns:getGOBlanksAktByNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGOBlanksAktByDates">
+      <wsdl:input message="tns:getGOBlanksAktByDatesSoapIn" />
+      <wsdl:output message="tns:getGOBlanksAktByDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGOReturnBlanksAktByNumber">
+      <wsdl:input message="tns:getGOReturnBlanksAktByNumberSoapIn" />
+      <wsdl:output message="tns:getGOReturnBlanksAktByNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGOReturnBlanksAktByDates">
+      <wsdl:input message="tns:getGOReturnBlanksAktByDatesSoapIn" />
+      <wsdl:output message="tns:getGOReturnBlanksAktByDatesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ImportGOBlanksServiceSoap" type="tns:ImportGOBlanksServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getGOBlanksAktByNumber">
+      <soap:operation soapAction="http://e-insurance.in.ua/getGOBlanksAktByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGOBlanksAktByDates">
+      <soap:operation soapAction="http://e-insurance.in.ua/getGOBlanksAktByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGOReturnBlanksAktByNumber">
+      <soap:operation soapAction="http://e-insurance.in.ua/getGOReturnBlanksAktByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGOReturnBlanksAktByDates">
+      <soap:operation soapAction="http://e-insurance.in.ua/getGOReturnBlanksAktByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ImportGOBlanksServiceSoap12" type="tns:ImportGOBlanksServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getGOBlanksAktByNumber">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getGOBlanksAktByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGOBlanksAktByDates">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getGOBlanksAktByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGOReturnBlanksAktByNumber">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getGOReturnBlanksAktByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGOReturnBlanksAktByDates">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getGOReturnBlanksAktByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ImportGOBlanksService">
+    <wsdl:port name="ImportGOBlanksServiceSoap" binding="tns:ImportGOBlanksServiceSoap">
+      <soap:address location="https://e-insurance.in.ua/synchronization/express/importgoblanks.php" />
+    </wsdl:port>
+    <wsdl:port name="ImportGOBlanksServiceSoap12" binding="tns:ImportGOBlanksServiceSoap12">
+      <soap12:address location="https://e-insurance.in.ua/synchronization/express/importgoblanks.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

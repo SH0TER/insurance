@@ -1,0 +1,85 @@
+* {
+	font-size: 13px;
+	font-family: Arial, Geneva, Helvetica, sans-serif;
+}
+BODY {
+	width: 1150px;
+}
+H1 {
+	font-size: 15px;
+	font-weight: bold;
+}
+H2 {
+	font-size: 13px;
+	font-weight: bold;
+	margin-bottom: 0px;
+}
+P {
+	font-size: 12px;
+	padding-top:0px;
+	padding-bottom:0px;
+	margin-top: 0px;
+	margin-bottom:0px;
+}
+UL, OL {
+	margin: 0px;
+}
+.small {
+	font-size: 10px;
+}
+.center {
+	text-align: center;
+}
+.all {
+	border: 1px solid black;
+}
+.left {
+	border-left: 1px solid black;
+}
+.top {
+	border-top: 1px solid black;
+}
+.right {
+	border-right: 1px solid black;
+}
+.bottom {
+	border-bottom: 1px solid black;
+}
+.u {
+	text-decoration: line-through;
+}
+.grey {
+	background-color: #eeeeee;
+}
+.underline {
+	border-bottom: 1px solid #000000;
+}
+.bold {
+	font-weight: bold;
+}
+.sub {
+	font-size: 10px;
+	text-align: center;
+	font-style: italic;
+}
+#company3 {
+	background: #FFFFFF url(https://e-insurance.in.ua/files/ProductDocuments/images/logo_garant.png) no-repeat 0 0;
+}
+#company4 {
+	background: #FFFFFF url(https://e-insurance.in.ua/files/ProductDocuments/images/logo_express.gif) no-repeat 0 0;
+}
+#company5 {
+	background: #FFFFFF url(https://e-insurance.in.ua/files/ProductDocuments/images/euassist_logo.gif) no-repeat 0 0;
+}
+#express-credit-company {
+	background: #FFFFFF url(https://e-insurance.in.ua/files/ProductDocuments/images/express-credit.png) no-repeat 0 0;
+	vertical-align: middle;
+}
+.green-express-credit {
+	color: white;
+	background-color: rgb(0, 165, 81);
+	padding: 20px 0px 20px 20px;
+}
+@media all and (orientation: landscape){
+    .list_cars{min-width: 1500px;}
+}

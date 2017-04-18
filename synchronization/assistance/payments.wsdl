@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://euassist.in.ua/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://euassist.in.ua/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://euassist.in.ua/">
+      <s:element name="getPaymentsByNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPaymentsByNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPaymentsByNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addAssistancePayments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="payments" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addAssistancePaymentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addAssistancePaymentsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getPaymentsByNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:getPaymentsByNumber" />
+  </wsdl:message>
+  <wsdl:message name="getPaymentsByNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:getPaymentsByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="addAssistancePaymentsSoapIn">
+    <wsdl:part name="parameters" element="tns:addAssistancePayments" />
+  </wsdl:message>
+  <wsdl:message name="addAssistancePaymentsSoapOut">
+    <wsdl:part name="parameters" element="tns:addAssistancePaymentsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AssistancePaymentsServiceSoap">
+    <wsdl:operation name="getPaymentsByNumber">
+      <wsdl:input message="tns:getPaymentsByNumberSoapIn" />
+      <wsdl:output message="tns:getPaymentsByNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addAssistancePayments">
+      <wsdl:input message="tns:addAssistancePaymentsSoapIn" />
+      <wsdl:output message="tns:addAssistancePaymentsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AssistancePaymentsServiceSoap" type="tns:AssistancePaymentsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPaymentsByNumber">
+      <soap:operation soapAction="http://euassist.in.ua/getPaymentsByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAssistancePayments">
+      <soap:operation soapAction="http://euassist.in.ua/addAssistancePayments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AssistancePaymentsServiceSoap12" type="tns:AssistancePaymentsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPaymentsByNumber">
+      <soap12:operation soapAction="http://euassist.in.ua/getPaymentsByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAssistancePayments">
+      <soap12:operation soapAction="http://euassist.in.ua/addAssistancePayments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AssistancePaymentsService">
+    <wsdl:port name="AssistancePaymentsServiceSoap" binding="tns:AssistancePaymentsServiceSoap">
+      <soap:address location="https://e-insurance.in.ua/synchronization/assistance/payments.php" />
+    </wsdl:port>
+    <wsdl:port name="AssistancePaymentsServiceSoap12" binding="tns:AssistancePaymentsServiceSoap12">
+      <soap12:address location="https://e-insurance.in.ua/synchronization/assistance/payments.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

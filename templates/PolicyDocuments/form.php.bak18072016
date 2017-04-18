@@ -1,0 +1,82 @@
+<div class="block">
+    <table width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+            <td class="bullet"><img src="/images/pixel.gif" width="27" height="28" alt="" /></td>
+            <td class="caption"><?=$this->getFormTitle($actionType)?>:</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr><td height="4" bgcolor="#D6D6D6"><img src="/images/pixel.gif" width="1" height="1" alt="" /></td></tr>
+                    <tr><td colspan="2" class="content"><?=translate('Content')?>:</td></tr>
+                    <tr>
+                        <td>
+                            <form name="<?=$this->objectTitle?>" action="<?=$_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="do" value="<?=$this->object.'|'.$action?>" />
+								<input type="hidden" name="product_types_id" value="<?=$_REQUEST['product_types_id']?>" />
+                                <input type="hidden" name="redirect" value="<?=(!$data['redirect']) ? $_SERVER['HTTP_REFERER'] : $data['redirect']?>" />
+                                <table cellpadding="2" cellspacing="0" width="100%">
+                                    <?=$this->buildFieldsPart($data, $actionType);?>
+									<tr id="doc_content"  >
+									
+									</tr>
+                                    <tr>
+                                        <td width="150">&nbsp;</td>
+                                        <td align="center"><input type="submit" value=" <?=translate('Save')?> " class="button" onMouseOver="this.className = 'buttonOver';" onMouseOut="this.className = 'button';" /></td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+<?if (!ereg('^view', $action) && ($Authorization->data['permissions']['Policies_KASKO']['superupdate'] || $Authorization->data['id']==1 || $Authorization->data['id']==3526)) {?>
+<script>
+function saveDocContent() {
+		var product_document_types_id = getElementValue('product_document_types_id');
+		if (product_document_types_id ==83 || product_document_types_id ==1 || product_document_types_id==2 || product_document_types_id==68|| product_document_types_id==171 || product_document_types_id==172 || product_document_types_id==175|| product_document_types_id==70|| product_document_types_id==44 || product_document_types_id==66 || product_document_types_id==28 || product_document_types_id==29 || product_document_types_id==180) {
+		var d ={'do':'PolicyDocuments|setDocumentContentInWindow','id':<?=$data['id']?>};
+		d['content']=$("#template_content" ).val();
+		$.ajax({
+						type:       'POST',
+						url:        'index.php',
+						dataType:   'html',
+						data:       d ,
+							success: function(result) {
+								$("#doc_content" ).html(result);
+							}
+						}); 
+		}
+}
+
+function loadDocContent() {
+		var product_document_types_id = getElementValue('product_document_types_id');
+		if (product_document_types_id ==83 || product_document_types_id ==1 || product_document_types_id==2 || product_document_types_id==68 || product_document_types_id==171 || product_document_types_id==172 || product_document_types_id==175 || product_document_types_id==70|| product_document_types_id==44  || product_document_types_id==66 || product_document_types_id==28 || product_document_types_id==29 || product_document_types_id==180) {
+				$.ajax({
+						type:       'POST',
+						url:        'index.php',
+						dataType:   'html',
+						data:       'do=PolicyDocuments|getDocumentContentInWindow' +
+									'&id=<?=$data['id']?>' ,
+							success: function(result) {
+								$("#doc_content" ).html("<td style=\"border: 1px solid #b81f14\" colspan=2 align=center><textarea rows=\"20\" cols=\"245\" id=\"template_content\" name=\"template_content\"></textarea><br><input onClick=\"saveDocContent()\" class=\"button\" type=\"button\" onmouseout=\"this.className = 'button';\" onmouseover=\"this.className = 'buttonOver';\" value=\" Оновити файл \"></td>");
+								$("#template_content" ).val(result);
+							}
+						}); 
+			
+				 
+		}
+}
+	$(document).ready(function(){
+		var product_document_types_id = getElementValue('product_document_types_id');
+		if (product_document_types_id ==83 || product_document_types_id ==1 || product_document_types_id==2 || product_document_types_id==68 || product_document_types_id==171 || product_document_types_id==172 || product_document_types_id==175 || product_document_types_id==70 || product_document_types_id==44  || product_document_types_id==66 || product_document_types_id==28 || product_document_types_id==29 || product_document_types_id==180) {
+			$("#doc_content" ).html("<td></td><td><a href=\"JavaScript:loadDocContent()\">Завантажити вмiст файлу</a></td>");
+		}
+	});
+</script>
+<?}?>
+<script type="text/javascript">initFocus(document.<?=$this->objectTitle?>);</script>

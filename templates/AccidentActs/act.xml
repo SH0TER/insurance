@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resultset>
+	{section name="roll" loop=$list}
+ 	<act>
+		<accidents_number>{$list[roll].accidents_number}</accidents_number>
+		<!--номер дела-->
+		<number>{$list[roll].number}</number>
+		<!--номер акта-->
+		<date>{$list[roll].date}</date>
+		<!--дата акта-->
+        <act_amount>{$list[roll].amount}</act_amount>
+		<!--сумма к возмещению по акту-->
+		
+		<policies_number>{$list[roll].policies_number}</policies_number>
+		
+
+		<act_recipient>{$list[roll].act_recipient0}</act_recipient>
+		<act_recipient_types_id>{$list[roll].act_recipient_types_id0}</act_recipient_types_id>
+		<!--получатель-->
+        <act_recipient_identification_code>{$list[roll].act_recipient_identification_code0}</act_recipient_identification_code>
+		<!--ИНН получателя-->
+		<act_recipient_amount>{$list[roll].act_amount0}</act_recipient_amount>
+		<!--сумма в перечислению-->
+
+		<act_recipient1>{$list[roll].act_recipient1}</act_recipient1>
+		<!--получатель-->
+        <act_recipient_identification_code1>{$list[roll].act_recipient_identification_code1}</act_recipient_identification_code1>
+		<!--ИНН получателя-->
+		<act_recipient_amount1>{$list[roll].act_amount1}</act_recipient_amount1>
+		<!--сумма в перечислению-->
+		
+		<act_recipient_types_id1>{$list[roll].act_recipient_types_id1}</act_recipient_types_id1>
+
+		<act_recipient2>{$list[roll].act_recipient2}</act_recipient2>
+		<!--получатель-->
+        <act_recipient_identification_code2>{$list[roll].act_recipient_identification_code2}</act_recipient_identification_code2>
+		<!--ИНН получателя-->
+		<act_recipient_amount2>{$list[roll].act_amount2}</act_recipient_amount2>
+		<act_recipient_types_id2>{$list[roll].act_recipient_types_id2}</act_recipient_types_id2>
+		<!--сумма в перечислению-->
+ 
+		
+	</act>
+	{/section}
+</resultset>

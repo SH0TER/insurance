@@ -1,0 +1,90 @@
+**********запросы разделены звездочками выполнять послежовательно**************
+
+-- две черты это коментарий эти строки игонорировать
+
+--По агенциям у которых стоит галочка индивидуальная комиссия необходимо по договорам где стоит галочка «сторонний клиент» начислить следующий размер КВ:
+--директор КАСКО Директор 1%
+
+update insurance_akts_contents a
+join    insurance_akts b on b.id=a.akts_id
+join insurance_policies c on c.id=a.policies_id
+join insurance_policies_kasko c1 on c1.policies_id=a.policies_id
+join insurance_agencies d on d.id=c.agencies_id
+set a.commission_amount=a.payment_amount*1/100,a.commission_percent=1
+
+where b.number like '%.04.16' and b.person_types_id=2   and d.individual_motivation=1 and  outside_client=1
+*******************************************************************************
+-- КАСКО  Зам 1%
+update insurance_akts_contents a
+join    insurance_akts b on b.id=a.akts_id
+join insurance_policies c on c.id=a.policies_id
+join insurance_policies_kasko c1 on c1.policies_id=a.policies_id
+join insurance_agencies d on d.id=c.agencies_id
+set a.commission_amount=a.payment_amount*1/100,a.commission_percent=1
+
+where b.number like '%.04.16' and b.person_types_id=3   and d.individual_motivation=1 and  outside_client=1
+
+*******************************************************************************
+-- КАСКО Агент 20%
+
+update insurance_akts_contents a
+join    insurance_akts b on b.id=a.akts_id
+join insurance_policies c on c.id=a.policies_id
+join insurance_policies_kasko c1 on c1.policies_id=a.policies_id
+join insurance_agencies d on d.id=c.agencies_id
+set a.commission_amount=a.payment_amount*20/100,a.commission_percent=20
+
+where b.number like '%.04.16' and b.person_types_id=1   and d.individual_motivation=1 and  outside_client=1
+
+
+
+
+--директор ГО Директор 1%
+*******************************************************************************
+update insurance_akts_contents a
+join    insurance_akts b on b.id=a.akts_id
+join insurance_policies c on c.id=a.policies_id
+join insurance_policies_go c1 on c1.policies_id=a.policies_id
+join insurance_agencies d on d.id=c.agencies_id
+set a.commission_amount=a.payment_amount*1/100,a.commission_percent=1
+
+where b.number like '%.04.16' and b.person_types_id=2   and d.individual_motivation=1 and  outside_client=1
+
+-- ГО  Зам 1%
+*******************************************************************************
+update insurance_akts_contents a
+join    insurance_akts b on b.id=a.akts_id
+join insurance_policies c on c.id=a.policies_id
+join insurance_policies_go c1 on c1.policies_id=a.policies_id
+join insurance_agencies d on d.id=c.agencies_id
+set a.commission_amount=a.payment_amount*1/100,a.commission_percent=1
+
+where b.number like '%.04.16' and b.person_types_id=3   and d.individual_motivation=1 and  outside_client=1
+
+
+-- КАСКО Агент 16%
+*******************************************************************************
+update insurance_akts_contents a
+join    insurance_akts b on b.id=a.akts_id
+join insurance_policies c on c.id=a.policies_id
+join insurance_policies_go c1 on c1.policies_id=a.policies_id
+join insurance_agencies d on d.id=c.agencies_id
+set a.commission_amount=a.payment_amount*16/100,a.commission_percent=16
+
+where b.number like '%.04.16' and b.person_types_id=1   and d.individual_motivation=1 and  outside_client=1
+
+
+
+
+
+
+
+--вытянуть полиса стороних клиентов по ГО
+select a.* from  insurance_akts_contents a
+join    insurance_akts b on b.id=a.akts_id
+join insurance_policies c on c.id=a.policies_id
+join insurance_policies_go c1 on c1.policies_id=a.policies_id
+join insurance_agencies d on d.id=c.agencies_id
+ 
+
+where b.number like '%.04.16' and b.person_types_id=1   and d.individual_motivation=1 and  outside_client=1

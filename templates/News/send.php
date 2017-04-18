@@ -1,0 +1,1 @@
+<iframe src="<?=$_SERVER['PHP_SELF']?>?do=<?=$this->object?>|sendInWindow&news_id=<?=$data['news_id']?>&types_id=<?=$data['types_id']?>" width="100%" height="300" frameborder="0"></iframe>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resultset>
+	{section name="roll" loop=$list}
+ 	<act_dms>
+		<number>{$list[roll].number}</number>
+		<!--номер акта-->
+		<date>{$list[roll].date}</date>
+		<!--дата акта-->
+        <act_amount>{$list[roll].act_amount}</act_amount>
+		<!--сумма к возмещению по акту-->
+		
+		<policies_number>{$list[roll].policy_number}</policies_number>
+		
+
+		<act_recipient>{$list[roll].insured_lastname} {$list[roll].insured_firstname} {$list[roll].insured_patronymicname}</act_recipient>
+		<!--получатель-->
+        <act_recipient_identification_code>{$list[roll].insured_passport_series} {$list[roll].insured_passport_number}</act_recipient_identification_code>
+		<!--ИНН получателя-->
+
+ 
+		
+	</act_dms>
+	{/section}
+</resultset>

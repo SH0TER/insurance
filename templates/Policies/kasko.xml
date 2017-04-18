@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resultset>
+	{section name="roll" loop=$list}
+ 	<kasko>
+		<number>{$list[roll].number}</number>		
+		<date>{$list[roll].date}</date>
+        <amount>{$list[roll].amount}</amount>
+		<priceAccident>{$list[roll].items.0.price_accident}</priceAccident>
+		<amountAccident>{$list[roll].items.0.amount_accident}</amountAccident>
+        <beginDateTime>{$list[roll].begin_datetime}</beginDateTime>
+		<endDateTime>{$list[roll].end_datetime}</endDateTime>
+        <personTypesId>{$list[roll].person_types_id}</personTypesId>
+        <company>{$list[roll].insurer_company}</company>
+        <edrpou>{$list[roll].insurer_edrpou}</edrpou>
+        <insurerLastname>{$list[roll].insurer_lastname}</insurerLastname>
+		<insurerFirstname>{$list[roll].insurer_firstname}</insurerFirstname>
+		<insurerPatronymicname>{$list[roll].insurer_patronymicname}</insurerPatronymicname>
+		<insurerPosition>{$list[roll].insurer_position}</insurerPosition>
+		<insurerDateofbirth>{$list[roll].insurer_dateofbirth}</insurerDateofbirth>
+		<insurerPassportSeries>{$list[roll].insurer_passport_series}</insurerPassportSeries>
+		<insurerPassportNumber>{$list[roll].insurer_passport_number}</insurerPassportNumber>
+		<insurerPassportPlace>{$list[roll].insurer_passport_place}</insurerPassportPlace>
+		<insurerPassportDate>{$list[roll].insurer_passport_date}</insurerPassportDate>
+		<insurerIdentificationCode>{$list[roll].insurer_identification_code}</insurerIdentificationCode>
+		<insurerPhone>{$list[roll].insurer_phone}</insurerPhone>
+		<insurerAddress>{$list[roll].insurer_address}</insurerAddress>
+		<assuredTitle>{$list[roll].assured_title}</assuredTitle>
+        <assuredIdentificationCode>{$list[roll].assured_identification_code}</assuredIdentificationCode>
+        <documents>{$list[roll].documents}</documents>
+        <product_typesId>{$list[roll].product_types_id}</product_typesId>
+		<agency_title>{$list[roll].agency_title}</agency_title>
+		<agencyedrpou>{$list[roll].agencyedrpou}</agencyedrpou>
+		<agreement_types_id>{$list[roll].agreement_types_id}</agreement_types_id>
+		<sub_number>{$list[roll].sub_number}</sub_number>
+
+        <objects>
+				{section name="itemsroll" loop=$list[roll].items}
+                <object>
+					<type>{$list[roll].items[itemsroll].car_type_title}</type>
+                    <brand>{$list[roll].items[itemsroll].brand}</brand>
+					<model>{$list[roll].items[itemsroll].model}</model>
+                    <year>{$list[roll].items[itemsroll].year}</year>
+					<color>{$list[roll].items[itemsroll].colors_title}</color>
+                    <shassi>{$list[roll].items[itemsroll].shassi}</shassi>
+					<sign>{$list[roll].items[itemsroll].sign}</sign>
+                    <price>{$list[roll].items[itemsroll].car_price}</price>
+                    <rate>{if $list[roll].certificate}{$list[roll].rate}{else}{$list[roll].items[itemsroll].rate_kasko}{/if}</rate>
+                    <amount>{if $list[roll].certificate}{$list[roll].amount}{else}{$list[roll].items[itemsroll].amount_kasko}{/if}</amount>
+					<risks>
+					{section name="riskroll" loop=$list[roll].risks}
+						{if $list[roll].risks[riskroll].risksId==7}
+						<risk deductible="{$list[roll].items[itemsroll].deductibles_value1}" absolute="{$list[roll].items[itemsroll].deductibles_absolute1}">{$list[roll].risks[riskroll].title}</risk>
+						{else}
+						<risk deductible="{$list[roll].items[itemsroll].deductibles_value0}" absolute="{$list[roll].items[itemsroll].deductibles_absolute0}">{$list[roll].risks[riskroll].title}</risk>
+						{/if}
+					{/section}
+					</risks>
+					<yearpayments>
+					{section name="yearpaymentsroll" loop=$list[roll].items[itemsroll].yearpayments}
+						<yearpayment>
+							<date>{$list[roll].items[itemsroll].yearpayments[yearpaymentsroll].date}</date>
+							<rateKASKO>{$list[roll].items[itemsroll].yearpayments[yearpaymentsroll].rate_kasko}</rateKASKO>
+							<rateAgent>{$list[roll].items[itemsroll].yearpayments[yearpaymentsroll].rate_agent}</rateAgent>
+							<itemPrice>{$list[roll].items[itemsroll].yearpayments[yearpaymentsroll].item_price}</itemPrice>
+							<amountKASKO>{$list[roll].items[itemsroll].yearpayments[yearpaymentsroll].amount_kasko}</amountKASKO>
+							<amountAgent>{$list[roll].items[itemsroll].yearpayments[yearpaymentsroll].amount_agent}</amountAgent>
+						</yearpayment>
+					{/section}
+					</yearpayments>
+                </object>
+				{/section}
+        </objects>
+		<payments>
+			{section name="paymentsroll" loop=$list[roll].paymentsCalendar}
+            <payment>
+				<paymentDate>{$list[roll].paymentsCalendar[paymentsroll].payment_date}</paymentDate>
+				<paymentAmount>{$list[roll].paymentsCalendar[paymentsroll].payment_amount}</paymentAmount>
+            </payment>
+			{/section}
+        </payments>
+
+	</kasko>
+	{/section}
+</resultset>

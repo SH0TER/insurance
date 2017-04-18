@@ -1,0 +1,23 @@
+<ul id="tabs">
+	<? if ($data['product_types_id'] == PRODUCT_TYPES_GO) { 
+		if (!$_POST['applications']['victim_accidents_id'] && !$_POST['applications']['insurer_accidents_id']) { 
+			$_POST['applications']['owner_types_id'] = $data['owner_types_id'];
+			$_POST['applications']['accidents_id'] = $data['accidents_id'];
+			$this->findApplication();
+		}
+	?>		
+		<li <?=($data['step'] == 1) ? 'class="active"' : ''?>><a href="/?do=Accidents|changeStep&accidents_id=<?=$data['accidents_id']?>&product_types_id=<?=$data['product_types_id']?>&step=1&victim_accidents_id=<?=$_POST['applications']['victim_accidents_id']?>&insurer_accidents_id=<?=$_POST['applications']['insurer_accidents_id']?>"><span>Заява</span></a></li>
+		<? if ($Authorization->data['roles_id'] != ROLES_MASTER) {?><li <?=($data['step'] == 2) ? 'class="active"' : ''?>><a href="/?do=Accidents|changeStep&accidents_id=<?=$data['accidents_id']?>&product_types_id=<?=$data['product_types_id']?>&step=2&victim_accidents_id=<?=$_POST['applications']['victim_accidents_id']?>&insurer_accidents_id=<?=$_POST['applications']['insurer_accidents_id']?>"><span>Класифікація</span></a></li><? } ?>
+		<? if ($Authorization->data['roles_id'] != ROLES_MASTER && $data['product_types_id'] == PRODUCT_TYPES_GO) {?><li <?=($data['step'] == 3) ? 'class="active"' : ''?>><a href="/?do=Accidents|changeStep&accidents_id=<?=$data['accidents_id']?>&product_types_id=<?=$data['product_types_id']?>&step=3&victim_accidents_id=<?=$_POST['applications']['victim_accidents_id']?>&insurer_accidents_id=<?=$_POST['applications']['insurer_accidents_id']?>"><span>МТСБУ</span></a></li><? } ?>
+		<? if ($Authorization->data['roles_id'] != ROLES_MASTER) {?><li <?=($data['step'] == 4) ? 'class="active"' : ''?>><a href="/?do=Accidents|changeStep&accidents_id=<?=$data['accidents_id']?>&product_types_id=<?=$data['product_types_id']?>&step=4&victim_accidents_id=<?=$_POST['applications']['victim_accidents_id']?>&insurer_accidents_id=<?=$_POST['applications']['insurer_accidents_id']?>"><span>Розгляд</span></a></li><? } ?>
+		<? if ($Authorization->data['roles_id'] != ROLES_MASTER) {?><li <?=($data['step'] == 5) ? 'class="active"' : ''?>><a href="/?do=Accidents|changeStep&accidents_id=<?=$data['accidents_id']?>&product_types_id=<?=$data['product_types_id']?>&step=5&victim_accidents_id=<?=$_POST['applications']['victim_accidents_id']?>&insurer_accidents_id=<?=$_POST['applications']['insurer_accidents_id']?>"><span>Страхові акти</span></a></li><? } ?>
+	<? } else { ?>
+		<? if ($Authorization->data['roles_id'] != ROLES_MASTER && $data['product_types_id'] == PRODUCT_TYPES_KASKO) {?><li <?=($data['step'] == 'call') ? 'class="active"' : ''?>><a href="/?do=Accidents|changeStep&accidents_id=<?=$data['accidents_id']?>&product_types_id=<?=$data['product_types_id']?>&step=call"><span>Дзвінок</span></a></li><? } ?>
+		<li <?=($data['step'] == 1) ? 'class="active"' : ''?>><a href="/?do=Accidents|changeStep&accidents_id=<?=$data['accidents_id']?>&product_types_id=<?=$data['product_types_id']?>&step=1"><span>Заява</span></a></li>
+		<? if ($Authorization->data['roles_id'] != ROLES_MASTER) {?><li <?=($data['step'] == 2) ? 'class="active"' : ''?>><a href="/?do=Accidents|changeStep&accidents_id=<?=$data['accidents_id']?>&product_types_id=<?=$data['product_types_id']?>&step=2"><span>Класифікація</span></a></li><? } ?>
+		<? if ($Authorization->data['roles_id'] != ROLES_MASTER && $data['product_types_id'] == PRODUCT_TYPES_GO) {?><li <?=($data['step'] == 3) ? 'class="active"' : ''?>><a href="/?do=Accidents|changeStep&accidents_id=<?=$data['accidents_id']?>&product_types_id=<?=$data['product_types_id']?>&step=3"><span>МТСБУ</span></a></li><? } ?>
+		<? if ($Authorization->data['roles_id'] != ROLES_MASTER) {?><li <?=($data['step'] == 4) ? 'class="active"' : ''?>><a href="/?do=Accidents|changeStep&accidents_id=<?=$data['accidents_id']?>&product_types_id=<?=$data['product_types_id']?>&step=4"><span>Розгляд</span></a></li><? } ?>
+		<? if ($Authorization->data['roles_id'] != ROLES_MASTER) {?><li <?=($data['step'] == 5) ? 'class="active"' : ''?>><a href="/?do=Accidents|changeStep&accidents_id=<?=$data['accidents_id']?>&product_types_id=<?=$data['product_types_id']?>&step=5"><span>Страхові акти</span></a></li><? } ?>
+        <? if ($Authorization->data['roles_id'] != ROLES_MASTER && $data['product_types_id'] == PRODUCT_TYPES_KASKO) {?><li <?=(!intval($data['step'])) ? 'class="active"' : ''?>><a href="/?do=Accidents|showInfo&accidents_id=<?=$data['accidents_id']?>&product_types_id=<?=$data['product_types_id']?>&step=5"><span>Відомості</span></a></li><? } ?>
+	<? } ?>
+</ul>

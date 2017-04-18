@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:tns="http://e-insurance.in.ua/"
+	xmlns:s="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	targetNamespace="http://e-insurance.in.ua/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://e-insurance.in.ua/">
+      <s:element name="get">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="car">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="brandId" type="s:int" />
+		  <s:element minOccurs="1" maxOccurs="1" name="modelId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="brand" type="s:string" />
+		  <s:element minOccurs="1" maxOccurs="1" name="model" type="s:string" />
+		  <s:element minOccurs="1" maxOccurs="1" name="modelZAZ" type="s:string" />
+		  <s:element minOccurs="1" maxOccurs="1" name="modelShort" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="cars" type="tns:car" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+
+  <wsdl:message name="getSoapIn">
+    <wsdl:part name="parameters" element="tns:get" />
+  </wsdl:message>
+  <wsdl:message name="getSoapOut">
+    <wsdl:part name="parameters" element="tns:getResponse" />
+  </wsdl:message>
+  
+  
+  <wsdl:portType name="CarsServiceSoap">
+    <wsdl:operation name="get">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Импорт марок - моделей авто</wsdl:documentation>
+      <wsdl:input message="tns:getSoapIn" />
+      <wsdl:output message="tns:getSoapOut" />
+    </wsdl:operation>
+   
+  </wsdl:portType>
+  <wsdl:binding name="CarsServiceSoap" type="tns:CarsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="get">
+      <soap:operation soapAction="http://e-insurance.in.ua/get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    
+  </wsdl:binding>
+  <wsdl:binding name="CarsServiceSoap12" type="tns:CarsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="get">
+      <soap12:operation soapAction="http://e-insurance.in.ua/get" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+ 
+  </wsdl:binding>
+  <wsdl:service name="CarsService">
+    <wsdl:port name="CarsServiceSoap" binding="tns:CarsServiceSoap">
+      <soap:address location="http://e-insurance.in.ua/synchronization/express/cars.php" />
+    </wsdl:port>
+    <wsdl:port name="CarsServiceSoap12" binding="tns:CarsServiceSoap12">
+      <soap12:address location="http://e-insurance.in.ua/synchronization/express/cars.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

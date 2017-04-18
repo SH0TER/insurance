@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policies>
+{section name=roll loop=$list}
+	<policy>
+		<agenciesCode>{$list[roll].code}</agenciesCode>
+		<agenciesTitle>{$list[roll].agencies_title}</agenciesTitle>
+		<typesId>{$list[roll].types_id}</typesId>
+		<personTypesId>{if $list[roll].person_types_id == 1}фізична{else}юридична{/if}</personTypesId>
+		<privileges>{$list[roll].privileges}</privileges>
+		<certificateSeries>{$list[roll].certificate_series}</certificateSeries>
+		<certificateNumber>{$list[roll].certificate_number}</certificateNumber>
+		<insurerCompany>{if $list[roll].person_types_id == 1}{else}{$list[roll].insurer_lastname}{/if}</insurerCompany>
+		<insurerLastname>{if $list[roll].person_types_id == 1}{$list[roll].insurer_lastname}{else}{/if}</insurerLastname>
+		<insurerFirstname>{if $list[roll].person_types_id == 1}{$list[roll].insurer_firstname}{else}{/if}</insurerFirstname>
+		<insurerPatronymicname>{if $list[roll].person_types_id == 1}{$list[roll].insurer_patronymicname}{else}{/if}</insurerPatronymicname>
+		<insurerZip>{$list[roll].insurer_zip}</insurerZip>
+		<insurerRegionsTitle>{$list[roll].regions_title}</insurerRegionsTitle>
+		<insurerCity>{$list[roll].insurer_city}</insurerCity>
+		<insurerStreet>{$list[roll].insurer_street}</insurerStreet>
+		<insurerHouse>{$list[roll].insurer_house}</insurerHouse>
+		<insurerFlat>{$list[roll].insurer_flat}</insurerFlat>
+		<insurerPhone>{$list[roll].insurer_phone}</insurerPhone>
+		<insurerIdentificationCode>{if $list[roll].person_types_id == 1}{$list[roll].insurer_identification_code}{else}{$list[roll].insurer_edrpou}{/if}</insurerIdentificationCode>
+		<insurerPassportSeries>{$list[roll].insurer_passport_series}</insurerPassportSeries>
+		<insurerPassportNumber>{$list[roll].insurer_passport_number}</insurerPassportNumber>
+		<insurerDateofbirth>{$list[roll].insurer_dateofbirth}</insurerDateofbirth>
+		<insurerDriverLicenceSeries>{$list[roll].insurer_driver_licence_series}</insurerDriverLicenceSeries>
+		<insurerDriverLicenceNumber>{$list[roll].insurer_driver_licence_number}</insurerDriverLicenceNumber>
+		<insurerDriverLicenceDate>{$list[roll].insurer_driver_licence_date}</insurerDriverLicenceDate>
+		{section name=roll2 loop=$list[roll].persons}
+		<persons>
+			<person>
+				<lastname>{$list[roll].persons[roll2].lastname}</lastname>
+				<firstname>{$list[roll].persons[roll2].firstname}</firstname>
+				<patronymicname>{$list[roll].persons[roll2].patronymicname}</patronymicname>
+				<driverLicenceSeries>{$list[roll].persons[roll2].driver_licence_series}</driverLicenceSeries>
+				<driverLicenceNumber>{$list[roll].persons[roll2].driver_licence_number}</driverLicenceNumber>
+				<driverLicenceDate>{$list[roll].persons[roll2].driver_licence_date}</driverLicenceDate>
+			</person>
+		</persons>
+		{/section}
+		<car_typesTitle>{$list[roll].car_types_title}</car_typesTitle>
+		<brand>{$list[roll].brand}</brand>
+		<model>{$list[roll].model}</model>
+		<year>{$list[roll].year}</year>
+		<shassi>{$list[roll].shassi}</shassi>
+		<sign>{$list[roll].sign}</sign>
+		<engine_size>{$list[roll].engine_size}</engine_size>
+		<car_weight>{$list[roll].car_weight}</car_weight>
+		<passengers>{$list[roll].passengers}</passengers>
+		<regionsNumber>{$list[roll].regions_number}</regionsNumber>
+		<place>{$list[roll].place}</place>
+		<deductible>{$list[roll].deductible}</deductible>
+		<date>{$list[roll].date}</date>
+		<discount>{$list[roll].discount}</discount>
+		<amount>{$list[roll].amount}</amount>
+		<beginDateTime>{$list[roll].begin_datetime}</beginDateTime>
+		<endDateTime>{$list[roll].end_datetime}</endDateTime>
+		<blankSeries>{$list[roll].blank_series}</blankSeries>
+		<blankNumber>{$list[roll].blank_number}</blankNumber>
+		<blankSeriesParent>{$list[roll].blank_series_parent}</blankSeriesParent>
+		<blankNumberParent>{$list[roll].blank_number_parent}</blankNumberParent>
+		<stikerSeries>{$list[roll].stiker_series}</stikerSeries>
+		<stikerNumber>{$list[roll].stiker_number}</stikerNumber>
+		<comment>{$list[roll].comment}</comment>
+		<paymentDateTime>{$list[roll].payment_datetime}</paymentDateTime>
+		<paymentNumber>{$list[roll].payment_number}</paymentNumber>
+		<k1>{$list[roll].k1}</k1>
+		<k2>{$list[roll].k2}</k2>
+		<k3>{$list[roll].k3}</k3>
+		<k4>{$list[roll].k4}</k4>
+		<k5>{$list[roll].k5}</k5>
+		<k6>{$list[roll].k6}</k6>
+		<k7>{$list[roll].k7}</k7>
+		<special>{$list[roll].special}</special>
+		<policy_statusesTitle>{$list[roll].policy_statuses_title}</policy_statusesTitle>
+	</policy>
+{/section}
+</policies>

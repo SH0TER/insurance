@@ -1,0 +1,23 @@
+*, P {
+	font-size: 16px;
+	line-height: 22px;
+}
+H1 {
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	margin: 0px;
+}
+H2 {
+	margin-top: 0px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+}
+.small P {
+	font-size: 12px;
+	line-height: 18px;
+}
+.large P {
+	font-size: 18px;
+}

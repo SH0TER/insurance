@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:tns="http://e-insurance.in.ua/"
+	xmlns:s="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	targetNamespace="http://e-insurance.in.ua/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://e-insurance.in.ua/">
+      <s:element name="get">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="product_typesId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="agencies">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="code" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="product">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="title" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="publish" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="modified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="agencies" type="tns:agencies" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="products" type="tns:product" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deductible" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="typesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="personTypesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="car_typesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="engine_size" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="car_weight" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="passengers" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="regionsId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="driver_standingsId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="driversId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="termsId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="privileges" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="products">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="unbounded" name="id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getKASKO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="engine_size" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="car_typesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="car_brandsId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="personTypesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="driver_standingsId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="driversId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="price" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="driver_agesId" type="s:int" />
+			<s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="citiesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="termsId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="deductiblesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="priorityPaymentsId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="residencesId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="transmissionsId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtp" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pdto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="actofgod" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="downfall" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="animal" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fire" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="hijacking" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="optionsDeteriorationNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="optionsDeductibleGlassNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="optionsFirstEvent" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="optionsSeason" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="optionsGuiltyNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="optionsHoliday" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="optionsWork" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="optionsTaxy" type="s:int" />
+			<s:element minOccurs="1" maxOccurs="1" name="optionsAlarm" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="optionsAgregateNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="optionsYears" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="products" type="tns:products" />
+            <s:element minOccurs="1" maxOccurs="1" name="dicount1" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dicount2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getKASKOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+
+  <wsdl:message name="getSoapIn">
+    <wsdl:part name="parameters" element="tns:get" />
+  </wsdl:message>
+  <wsdl:message name="getSoapOut">
+    <wsdl:part name="parameters" element="tns:getResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGOSoapIn">
+    <wsdl:part name="parameters" element="tns:getGO" />
+  </wsdl:message>
+  <wsdl:message name="getGOSoapOut">
+    <wsdl:part name="parameters" element="tns:getGOResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKASKOSoapIn">
+    <wsdl:part name="parameters" element="tns:getKASKO" />
+  </wsdl:message>
+  <wsdl:message name="getKASKOSoapOut">
+    <wsdl:part name="parameters" element="tns:getKASKOResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProductsServiceSoap">
+    <wsdl:operation name="get">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Импорт страховых продуктов</wsdl:documentation>
+      <wsdl:input message="tns:getSoapIn" />
+      <wsdl:output message="tns:getSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Рассчет тарифа ГО</wsdl:documentation>
+      <wsdl:input message="tns:getGOSoapIn" />
+      <wsdl:output message="tns:getGOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getKASKO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Рассчет тарифа КАСКО</wsdl:documentation>
+      <wsdl:input message="tns:getKASKOSoapIn" />
+      <wsdl:output message="tns:getKASKOSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductsServiceSoap" type="tns:ProductsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="get">
+      <soap:operation soapAction="http://e-insurance.in.ua/get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGO">
+      <soap:operation soapAction="http://e-insurance.in.ua/getGO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKASKO">
+      <soap:operation soapAction="http://e-insurance.in.ua/getKASKO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductsServiceSoap12" type="tns:ProductsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="get">
+      <soap12:operation soapAction="http://e-insurance.in.ua/get" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGO">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getGO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKASKO">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getKASKO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductsService">
+    <wsdl:port name="ProductsServiceSoap" binding="tns:ProductsServiceSoap">
+      <soap:address location="http://e-insurance.in.ua/synchronization/express/products.php" />
+    </wsdl:port>
+    <wsdl:port name="ProductsServiceSoap12" binding="tns:ProductsServiceSoap12">
+      <soap12:address location="http://e-insurance.in.ua/synchronization/express/products.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

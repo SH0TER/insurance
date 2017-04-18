@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://e-insurance.in.ua/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://e-insurance.in.ua/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://e-insurance.in.ua/">
+      <s:element name="getPayment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPaymentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPaymentByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="begin" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPaymentByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPaymentByDatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getPaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:getPayment" />
+  </wsdl:message>
+  <wsdl:message name="getPaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:getPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPaymentByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:getPaymentByDates" />
+  </wsdl:message>
+  <wsdl:message name="getPaymentByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:getPaymentByDatesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PaymentsOutSoap">
+    <wsdl:operation name="getPayment">
+      <wsdl:input message="tns:getPaymentSoapIn" />
+      <wsdl:output message="tns:getPaymentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentByDates">
+      <wsdl:input message="tns:getPaymentByDatesSoapIn" />
+      <wsdl:output message="tns:getPaymentByDatesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaymentsOutSoap" type="tns:PaymentsOutSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPayment">
+      <soap:operation soapAction="http://e-insurance.in.ua/getPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentByDates">
+      <soap:operation soapAction="http://e-insurance.in.ua/getPaymentByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PaymentsOutSoap12" type="tns:PaymentsOutSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPayment">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentByDates">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getPaymentByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PaymentsOut">
+    <wsdl:port name="PaymentsOutSoap" binding="tns:PaymentsOutSoap">
+      <soap:address location="http://e-insurance.in.ua/synchronization/express/paymentsout.php" />
+    </wsdl:port>
+    <wsdl:port name="PaymentsOutSoap12" binding="tns:PaymentsOutSoap12">
+      <soap12:address location="http://e-insurance.in.ua/synchronization/express/paymentsout.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://e-insurance.in.ua/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://e-insurance.in.ua/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://e-insurance.in.ua/">
+      <s:element name="getAgreements">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAgreementsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAgreementsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getAgreementsSoapIn">
+    <wsdl:part name="parameters" element="tns:getAgreements" />
+  </wsdl:message>
+  <wsdl:message name="getAgreementsSoapOut">
+    <wsdl:part name="parameters" element="tns:getAgreementsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PoliciesInfoSoap">
+    <wsdl:operation name="getAgreements">
+      <wsdl:input message="tns:getAgreementsSoapIn" />
+      <wsdl:output message="tns:getAgreementsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PoliciesInfoSoap" type="tns:PoliciesInfoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAgreements">
+      <soap:operation soapAction="http://e-insurance.in.ua/getAgreements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PoliciesInfoSoap12" type="tns:PoliciesInfoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAgreements">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getAgreements" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PoliciesInfo">
+    <wsdl:port name="PoliciesInfoSoap" binding="tns:PoliciesInfoSoap">
+      <soap:address location="https://e-insurance.in.ua/synchronization/assistance/policies.php" />
+    </wsdl:port>
+    <wsdl:port name="PoliciesInfoSoap12" binding="tns:PoliciesInfoSoap12">
+      <soap12:address location="https://e-insurance.in.ua/synchronization/assistance/policies.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

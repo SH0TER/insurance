@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://e-insurance.in.ua/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://e-insurance.in.ua/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://e-insurance.in.ua/">
+      <s:element name="addPayments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inputstr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addPaymentsResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="addPaymentsSoapIn">
+    <wsdl:part name="parameters" element="tns:addPayments" />
+  </wsdl:message>
+  <wsdl:message name="addPaymentsSoapOut">
+    <wsdl:part name="parameters" element="tns:addPaymentsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PaymentsSoap">
+    <wsdl:operation name="addPayments">
+      <wsdl:input message="tns:addPaymentsSoapIn" />
+      <wsdl:output message="tns:addPaymentsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaymentsSoap" type="tns:PaymentsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addPayments">
+      <soap:operation soapAction="http://e-insurance.in.ua/addPayments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PaymentsSoap12" type="tns:PaymentsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addPayments">
+      <soap12:operation soapAction="http://e-insurance.in.ua/addPayments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Payments">
+    <wsdl:port name="PaymentsSoap" binding="tns:PaymentsSoap">
+      <soap:address location="http://e-insurance.in.ua/synchronization/express/payments.php" />
+    </wsdl:port>
+    <wsdl:port name="PaymentsSoap12" binding="tns:PaymentsSoap12">
+      <soap12:address location="http://e-insurance.in.ua/synchronization/express/payments.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

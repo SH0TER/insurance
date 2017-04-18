@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resultset>
+{section name=roll loop=$list}
+{if $smarty.section.roll.first}
+{/if}
+ <row>
+  <column name="426/101" null="true">{$list[roll].codeKniazha}</column>  
+  <column name="426/4" null="false">14</column> 
+  <column name="426/5" null="false">{$list[roll].blankSeries}</column> 
+  <column name="426/6" null="false">{$list[roll].blankNumber}</column> 
+  <column name="426/8" null="false">1</column> 
+  <column name="426/12" null="false">{$list[roll].beginDateTime_dateFormat}</column> 
+  <column name="426/13" null="false">{$list[roll].endDateTime_dateFormat}</column> 
+  <column name="426/14" null="false">1</column> 
+  <column name="426/17" null="false">015</column> 
+  <column name="426/18" null="false">{$list[roll].typesId}</column> 
+  <column name="426/19" null="false">{if $list[roll].typesId==3 && $list[roll].privileges==1}3{else}{if $list[roll].personTypesId==2}2{else}1{/if}{/if}</column> 
+  <column name="426/84" null="true" >{$list[roll].privileges}</column>
+  <column name="426/20" null="false">{if $list[roll].policy_statusesId==$smarty.const.POLICY_STATUSES_GENERATED}1{/if}{if $list[roll].policy_statusesId==$smarty.const.POLICY_STATUSES_CONTINUED}30{/if}{if $list[roll].policy_statusesId==$smarty.const.POLICY_STATUSES_RENEW}2{/if}{if $list[roll].policy_statusesId==$smarty.const.POLICY_STATUSES_SPOILT}3{/if}{if $list[roll].policy_statusesId==$smarty.const.POLICY_STATUSES_CANCELLED}4{/if}{if $list[roll].policy_statusesId==$smarty.const.POLICY_STATUSES_COPY}6{/if}</column> 
+  <column name="426/21" null="false">ЗАТ УСК "Княжа"</column> 
+  <column name="426/22" null="false">{if $list[roll].discount>0}4{else}3{/if}</column> 
+  <column name="426/23" null="false">{$list[roll].regionsId}</column> 
+  <column name="426/24" null="false">{$list[roll].k1}</column> 
+  <column name="426/25" null="false">{$list[roll].k2}</column> 
+  <column name="426/26" null="false">{$list[roll].k3}</column> 
+  <column name="426/27" null="false">{$list[roll].k4}</column> 
+  <column name="426/28" null="false">{$list[roll].k5}</column> 
+  <column name="426/29" null="false">{$list[roll].k6}</column> 
+  <column name="426/30" null="false">{$list[roll].k7}</column> 
+  <column name="426/67" null="false">0</column> 
+  <column name="426/31" null="false">51000.00</column> 
+  <column name="426/32" null="false">25500.00</column> 
+  <column name="426/33" null="false">{$list[roll].deductible}</column>
+  {assign var="termsId" value=$list[roll].termsId-13}
+  <column name="426/34" null="false">{$termsId}</column> 
+  <column name="426/38" null="false">{$list[roll].insurerDriverLicenceSeries}</column> 
+  <column name="426/39" null="false">{$list[roll].insurerDriverLicenceNumber}</column> 
+  <column name="426/40" null="false">{if $list[roll].personTypesId==2 && ($list[roll].typesId==3 || $list[roll].typesId==2)}{$list[roll].go_persons.0.driver_standingYear}{else}{$list[roll].insurerDriverStandingYear}{/if}</column> 
+  <column name="426/41" null="false">{if  $list[roll].go_persons.0.lastname}{$list[roll].go_persons.0.lastname} {$list[roll].go_persons.0.firstname} {$list[roll].go_persons.0.patronymicname}{/if}</column>
+  <column name="426/42" null="false">{if  $list[roll].go_persons.0.lastname}{$list[roll].go_persons.0.driverLicenceSeries}{/if}</column> 
+  <column name="426/43" null="false">{if $list[roll].go_persons.0.lastname}{$list[roll].go_persons.0.driverLicenceNumber}{/if}</column>  
+  <column name="426/44" null="true">{if  $list[roll].go_persons.0.lastname}{$list[roll].go_persons.0.driver_standingYear}{/if}</column>   
+  <column name="426/45" null="false">{if $list[roll].typesId==3 && $list[roll].go_persons.1.lastname}{$list[roll].go_persons.1.lastname} {$list[roll].go_persons.1.firstname} {$list[roll].go_persons.0.patronymicname}{/if}</column> 
+  <column name="426/46" null="false">{if $list[roll].typesId==3 && $list[roll].go_persons.1.lastname}{$list[roll].go_persons.1.driverLicenceSeries}{/if}</column>  
+  <column name="426/47" null="false">{if $list[roll].typesId==3 && $list[roll].go_persons.1.lastname}{$list[roll].go_persons.1.driverLicenceNumber}{/if}</column>  
+  <column name="426/48" null="true">{if $list[roll].typesId==3 && $list[roll].go_persons.1.lastname}{$list[roll].go_persons.1.driver_standingYear}{/if}</column>    
+  <column name="426/49" null="false">{if $list[roll].typesId==3 && $list[roll].go_persons.2.lastname}{$list[roll].go_persons.2.lastname} {$list[roll].go_persons.2.firstname} {$list[roll].go_persons.2.patronymicname}{/if}</column>  
+  <column name="426/50" null="false">{if $list[roll].typesId==3 && $list[roll].go_persons.2.lastname}{$list[roll].go_persons.2.driverLicenceSeries}{/if}</column> 
+  <column name="426/51" null="false">{if $list[roll].typesId==3 && $list[roll].go_persons.2.lastname}{$list[roll].go_persons.2.driverLicenceNumber}{/if}</column>   
+  <column name="426/52" null="true">{if $list[roll].typesId==3 && $list[roll].go_persons.2.lastname}{$list[roll].go_persons.2.driver_standingYear}{/if}</column> 
+  <column name="426/53" null="false">{if $list[roll].typesId==3 && $list[roll].go_persons.3.lastname}{$list[roll].go_persons.3.lastname} {$list[roll].go_persons.3.firstname} {$list[roll].go_persons.3.patronymicname}{/if}</column>   
+  <column name="426/54" null="false">{if $list[roll].typesId==3 && $list[roll].go_persons.3.lastname}{$list[roll].go_persons.3.driverLicenceSeries}{/if}</column>  
+  <column name="426/55" null="false">{if $list[roll].typesId==3 && $list[roll].go_persons.3.lastname}{$list[roll].go_persons.3.driverLicenceNumber}{/if}</column>    
+  <column name="426/56" null="true">{if $list[roll].typesId==3 && $list[roll].go_persons.3.lastname}{$list[roll].go_persons.3.driver_standingYear}{/if}</column>  
+  <column name="426/57" null="false">{if $list[roll].car_typesId!=3 && $list[roll].car_typesId!=4}{$list[roll].engine_code}{/if}{if $list[roll].car_typesId==3}{$list[roll].passengers_code}{/if}{if $list[roll].car_typesId==4}{$list[roll].car_weight_code}{/if}</column> 
+  <column name="426/94" null="false">{$list[roll].brand}</column> 
+  <column name="426/58" null="false">{$list[roll].model}</column> 
+  <column name="426/59" null="false" >{$list[roll].sign}</column>  
+  <column name="426/60" null="false">{$list[roll].shassi}</column> 
+  <column name="426/61" null="false">{$list[roll].year}</column> 
+  <column name="426/62" null="false">{$list[roll].place}</column> 
+  <column name="426/63" null="true">2</column> 
+  <column name="426/65" null="false">{$list[roll].paymentNumber}</column> 
+  <column name="426/66" null="false">{$list[roll].comment}</column> 
+  <column name="426/68" null="false">14.04.2005</column> 
+  <column name="426/91" null="true">{$list[roll].modified_dateTimeFormat}</column> 
+  <column name="426/70" null="false">0</column> 
+  <column name="426/77" null="true">0</column> 
+  <column name="426/95" null="true">{$list[roll].stikerNumber}</column>
+  <column name="426/96" null="true">{$list[roll].stikerSeries}</column>
+  <column name="426/99" null="true" /> 
+  <column name="426/100" null="true" /> 
+  <column name="426/35" null="false">{$list[roll].insurerZip}</column> 
+  <column name="1264/13" null="true" /> 
+  <column name="1264/14" null="true" /> 
+  <column name="1264/15" null="true" /> 
+  <column name="1264/16" null="true" /> 
+  <column name="1264/20" null="true">{if $list[roll].personTypesId==2}1{else}0{/if}</column> 
+  <column name="1264/9" null="true" >{$list[roll].insurerLastname} {$list[roll].insurerFirstname} {$list[roll].insurerPatronymicname}</column> 
+  <column name="1264/12" null="true">{$list[roll].insurerPhone}</column> 
+  <column name="1264/17" null="true">{if $list[roll].personTypesId==2}{$list[roll].insurerEDRPOU}{else}{$list[roll].insurerIdentificationCode}{/if}</column>
+  <column name="1264/18" null="true" /> 
+  <column name="1264/19" null="true">{if $list[roll].personTypesId==2}{$list[roll].insurerLastname}{/if}</column>
+  <column name="1264/21" null="true" /> 
+  <column name="1264/22" null="true">{$list[roll].insurerCity}</column> 
+  <column name="1264/23" null="true">{$list[roll].insurerRegionsTitle}</column> 
+  <column name="1264/11" null="true">{$list[roll].insurerStreet}{if $list[roll].insurerHouse}, {$list[roll].insurerHouse}{/if}{if $list[roll].insurerFlat} кв.{$list[roll].insurerFlat}{/if}</column> 
+  <column name="1264/24" null="true" /> 
+  <column name="1264/26" null="true">{if $list[roll].personTypesId!=2}{$list[roll].insurerLastname}{/if}</column>
+  <column name="1264/27" null="true">{if $list[roll].personTypesId!=2}{$list[roll].insurerFirstname}{/if}</column>
+  <column name="1264/28" null="true">{if $list[roll].personTypesId!=2}{$list[roll].insurerPatronymicname}{/if}</column>
+  <column name="1264/30" null="true">0</column> 
+  <column name="1264/31" null="true">0</column> 
+  <column name="1264/32" null="true"></column> 
+  <column name="1264/33" null="true" />
+  <column name="1264/34" null="true" /> 
+  <column name="1264/35" null="true" /> 
+  <column name="1264/36" null="true" /> 
+  <column name="1264/37" null="true">{$list[roll].insurerZip}</column> 
+  <column name="1264/39" null="true">1</column> 
+  <column name="1327/15" null="true" /> 
+  <column name="1327/16" null="true">{$list[roll].paymentNumber}</column> 
+  <column name="1327/17" null="false">{$list[roll].paymentDateTime_dateTimeFormat}</column> 
+  <column name="1327/14" null="false">{$list[roll].amount}</column> 
+  <column name="710/100" null="false">{if $list[roll].policy_statusesId==$smarty.const.POLICY_STATUSES_CANCELLED}{$list[roll].cancelDateFormat}{else}NULL{/if}</column>
+  {if $list[roll].policy_statusesId==$smarty.const.POLICY_STATUSES_RENEW || $list[roll].policy_statusesId==$smarty.const.POLICY_STATUSES_COPY || $list[roll].policy_statusesId==$smarty.const.POLICY_STATUSES_CONTINUED}
+  <column name="670/10" null="false">{$list[roll].blankSeriesParent}</column>
+  <column name="670/11" null="false">{$list[roll].blankNumberParent}</column>
+  <column name="710/101" null="false">{$list[roll].dateFormat}</column>
+  {else}
+  <column name="670/10" null="false">NULL</column>
+  <column name="670/11" null="false">NULL</column>
+  <column name="710/101" null="false">NULL</column>
+  {/if}
+  
+ </row>
+ {if $smarty.section.roll.last}
+{/if}			
+{/section}
+ </resultset>

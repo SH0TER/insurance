@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resultset>
+	{section name="roll" loop=$list}
+ 	<dgo>
+		<number>{$list[roll].number}</number>		
+		<date>{$list[roll].date}</date>
+        <amount>{$list[roll].amount}</amount>
+		<rate>{$list[roll].rate}</rate>
+		<price>{$list[roll].price}</price>
+        <beginDateTime>{$list[roll].begin_datetime}</beginDateTime>
+		<endDateTime>{$list[roll].end_datetime}</endDateTime>
+        <personTypesId>{$list[roll].person_types_id}</personTypesId>
+        <company>{$list[roll].insurer_company}</company>
+        <edrpou>{$list[roll].insurer_edrpou}</edrpou>
+        <insurerLastname>{if $list[roll].person_types_id==2}{$list[roll].insurer_company}{else}{$list[roll].insurer_lastname}{/if}</insurerLastname>
+		<insurerFirstname>{$list[roll].insurer_firstname}</insurerFirstname>
+		<insurerPatronymicname>{$list[roll].insurer_patronymicname}</insurerPatronymicname>
+		<insurerDateofbirth>{$list[roll].insurer_dateofbirth}</insurerDateofbirth>
+		<insurerPassportSeries>{$list[roll].insurer_passport_series}</insurerPassportSeries>
+		<insurerPassportNumber>{$list[roll].insurer_passport_number}</insurerPassportNumber>
+		<insurerPassportPlace>{$list[roll].insurer_passport_place}</insurerPassportPlace>
+		<insurerPassportDate>{$list[roll].insurer_passport_date}</insurerPassportDate>
+		<insurerIdentificationCode>{$list[roll].insurer_identification_code}</insurerIdentificationCode>
+		<insurerPhone>{$list[roll].insurer_phone}</insurerPhone>
+		<insurerAddress>{$list[roll].insurer_address}</insurerAddress>
+		<payments>
+			{section name="paymentsroll" loop=$list[roll].paymentsCalendar}
+            <payment>
+				<paymentDate>{$list[roll].paymentsCalendar[paymentsroll].payment_date}</paymentDate>
+				<paymentAmount>{$list[roll].paymentsCalendar[paymentsroll].payment_amount}</paymentAmount>
+            </payment>
+			{/section}
+        </payments>
+
+	</dgo>
+	{/section}
+</resultset>

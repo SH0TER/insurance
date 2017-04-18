@@ -1,0 +1,14 @@
+***************запросы разделены звездочками выполнять друг за другом*******************************
+
+delete from  temp;
+-----****************************************************************************************************
+insert into  temp(akt_id)
+select b.id from  insurance_akts a
+join insurance_akts_contents b on b.akts_id=a.id
+join (select policies_id,max(datetime) as date from  insurance_policy_payments group by policies_id) c on c.policies_id=b.policies_id
+
+where b.documents=0 and b.statuses_id>1 and a.number like '%.08.16' and c.date<'2014-09-01'
+
+-----****************************************************************************************************
+
+delete from insurance_akts_contents where id in (select akt_id from temp) 

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resultset>
+	{section name="roll" loop=$list}
+ 	<dskv>
+		<number>{$list[roll].number}</number>		
+		<date>{$list[roll].date}</date>
+        <amount>{$list[roll].amount}</amount>
+		<amountOther>{$list[roll].amount_other}</amountOther>
+		<rateOther>{$list[roll].rate_other}</rateOther>
+		<limitOther>{$list[roll].price_other}</limitOther>
+		<price>{$list[roll].price}</price>
+		<rate>{$list[roll].rate}</rate>
+        <beginDateTime>{$list[roll].begin_datetime}</beginDateTime>
+		<endDateTime>{$list[roll].end_datetime}</endDateTime>
+        <personTypesId>{$list[roll].person_types_id}</personTypesId>
+        <company></company>
+        <edrpou></edrpou>
+        <insurerLastname>{$list[roll].insurer_lastname}</insurerLastname>
+		<insurerFirstname>{$list[roll].insurer_firstname}</insurerFirstname>
+		<insurerPatronymicname>{$list[roll].insurer_patronymicname}</insurerPatronymicname>
+		<insurerPosition>{$list[roll].insurer_position}</insurerPosition>
+		<insurerDateofbirth>{$list[roll].insurer_dateofbirth}</insurerDateofbirth>
+		<insurerPassportSeries>{$list[roll].insurer_passport_series}</insurerPassportSeries>
+		<insurerPassportNumber>{$list[roll].insurer_passport_number}</insurerPassportNumber>
+		<insurerPassportPlace>{$list[roll].insurer_passport_place}</insurerPassportPlace>
+		<insurerPassportDate>{$list[roll].insurer_passport_date}</insurerPassportDate>
+		<insurerIdentificationCode>{$list[roll].insurer_identification_code}</insurerIdentificationCode>
+		<insurerPhone>{$list[roll].insurer_phone}</insurerPhone>
+		<insurerAddress>{$list[roll].insurer_address}</insurerAddress>
+		<assuredTitle></assuredTitle>
+        <assuredIdentificationCode></assuredIdentificationCode>
+        <property_sections>
+				{section name="itemsroll" loop=$list[roll].property_sections}
+                <property_section>
+					<title>{$list[roll].property_sections[itemsroll].title}</title>
+					<value>{$list[roll].property_sections[itemsroll].value}</value>
+                    <rate>{$list[roll].property_sections[itemsroll].rate}</rate>
+                    <amount>{$list[roll].property_sections[itemsroll].amount}</amount>
+					
+					<risks>
+					{section name="riskroll" loop=$list[roll].risks}
+						<risk deductible="1" absolute="0">{$list[roll].risks[riskroll].title}</risk>
+					{/section}
+					</risks>
+                </property_section>
+				{/section}
+        </property_sections>
+		<payments>
+			{section name="paymentsroll" loop=$list[roll].paymentsCalendar}
+            <payment>
+				<paymentDate>{$list[roll].paymentsCalendar[paymentsroll].payment_date}</paymentDate>
+				<paymentAmount>{$list[roll].paymentsCalendar[paymentsroll].payment_amount}</paymentAmount>
+            </payment>
+			{/section}
+        </payments>
+
+	</dskv>
+	{/section}
+</resultset>

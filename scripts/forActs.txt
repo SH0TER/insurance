@@ -1,0 +1,185 @@
+update `insurance_policies` set manager_id=0
+WHERE agents_id = `manager_id`
+
+update insurance_policy_payments_calendar a
+join  insurance_policies_kasko b on b.policies_id=a.policies_id
+set a.commission_agent_amount=100
+WHERE a.amount =500
+
+https://e-insurance.in.ua/synchronization/express/importkreditdates.php 
+https://e-insurance.in.ua/index.php?do=Akts|generateAktsInWindow
+https://e-insurance.in.ua/index.php?do=Akts|generateMastersAktsInWindow
+https://e-insurance.in.ua/index.php?do=Akts|generateJurPersonAktInWindow
+
+
+https://e-insurance.in.ua/index.php?do=Akts|moveManagersAktInWindow
+
+
+
+https://e-insurance.in.ua/index.php?do=BankAkts|generateBankAktsInWindow
+
+
+update insurance_akts_contents set 
+commission_amount_black=commission_amount-commission_amount_white
+where akts_id in (select id from insurance_akts where    number like '%.12.14')
+
+update insurance_akts_express_credit_contents set 
+commission_percent_white=0.4*commission_percent,commission_amount_white=commission_amount*0.4
+where akts_id in (select id from insurance_akts where  person_types_id in (1,2,3) and number like '%.10.14')
+
+*********************************************************************************
+delete from insurance_akts 
+where number like '%.04.13'
+and id not in (
+select distinct akts_id from insurance_akts_contents 
+)
+
+and 
+id not in (
+select distinct akts_id from insurance_akts_express_credit_contents
+)
+
+*********************************************************************************
+
+delete from insurance_akts 
+where number like '%.08.12' and person_types_id=6
+and id not in (
+select distinct akts_id from insurance_akts_contents 
+)
+
+
+
+*********************************************************************************
+
+
+https://e-insurance.in.ua/index.php?do=Akts|createPaymentInWindow&id=32999&number=11137.07.14
+
+
+https://e-insurance.in.ua/index.php?do=Akts|generateAkt&agreement_number=5054
+https://e-insurance.in.ua/index.php?do=Akts|generateMasterAkt&agreement_number=080-ฬฯ 
+https://e-insurance.in.ua/index.php?do=Akts|generateCalendarInWindow
+https://e-insurance.in.ua/index.php?do=Akts|generateJurPersonAkt&agreement_number=7/ภั
+
+
+
+
+4343.12.11
+
+
+insert into insurance_akts_contents(
+akts_id,payments_calendar_id,policies_id,number,payment_amount,base_commission_percent,base_commission_amount,
+commission_percent,commission_amount,types_id,statuses_id,documents,created,modified
+)
+
+select 6286,
+payments_calendar_id,policies_id,number,payment_amount,base_commission_percent,base_commission_amount,
+base_commission_percent,base_commission_amount,types_id,statuses_id,documents,NOW(),NOW()
+
+from insurance_akts_contents where akts_id=6304 and base_commission_amount>0 and types_id=1
+
+
+update insurance_akts_contents set akts_id=6967 where akts_id=6968
+
+
+
+
+update `insurance_policy_payments_calendar` set `date`=date_add(date,interval 8 day)
+WHERE `policies_id` =106277
+
+update `insurance_policies_kasko_item_years_payments` set `date`=date_add(date,interval 8 day)
+WHERE `policies_id` =106277
+
+
+
+
+
+
+
+
+insert into insurance_akts_contents(
+aktsId,payments_calendarId,policiesId,number,paymentAmount,baseCommissionPercent,baseCommissionAmount,
+commissionPercent,commissionAmount,typesId,statusesId,documents,created,modified
+)
+
+select 4857,
+payments_calendarId,policiesId,number,paymentAmount,baseCommissionPercent,baseCommissionAmount,
+commissionPercent,commissionAmount,typesId,statusesId,documents,NOW(),NOW()
+
+from insurance_akts_contents where aktsId=5772 
+
+
+
+
+
+update insurance_policies_kasko ff
+join (
+
+select max(a.date) as dat,b.policies_id from insurance_akts a
+join insurance_akts_contents b on b.akts_id=a.id
+where a.payment_statuses_id=3 and b.documents=1 and b.statuses_id>1 and a.person_types_id in(1,2,3)
+group by b.policies_id
+
+) ff1 on ff1.policies_id=ff.policies_id
+set akt_date=dat
+
+
+
+
+
+
+
+
+update  insurance_policies a
+join insurance_policies_go b on b.policiesId=a.id
+join  insurance_policy_payments_calendar c on c.policiesId=a.id
+join insurance_akts_contents c1 on c1.policiesId=a.id
+join insurance_akts c2 on c2.id=c1.aktsId
+set commissionDirector2Percent=2
+where c2.number like '%.12.11' 
+
+
+
+update `insurance_policy_payments_calendar` set `date`=date_add(date,interval 8 day)
+WHERE `policies_id` =106277
+
+update `insurance_policies_kasko_item_years_payments` set `date`=date_add(date,interval 8 day)
+WHERE `policies_id` =106277
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------
+update `insurance_akts_contents` set commission_amount_white=0
+WHERE commission_amount_white IS NULL ;
+
+
+update `insurance_akts_contents` set commission_amount_black=0
+WHERE commission_amount_black IS NULL ;
+
+update `insurance_akts_contents` set commission_percent_white=0
+WHERE commission_percent_white IS NULL ;
+
+
+
+update insurance_akts_contents a
+join insurance_akts cc on cc.id=a.akts_id
+join  insurance_akts_plan_contents b on b.policies_id=a.policies_id 
+set commission_amount_white=if(b.types_id=1, 0.4*commission_amount,0),
+commission_percent_white=if(b.types_id=1, 0.4*commission_percent,0)
+where a.akts_id in (select id from insurance_akts where    number like '%.12.14') and cc.person_types_id<>6
+
+
+update insurance_akts_contents a
+join insurance_akts cc on cc.id=a.akts_id
+set commission_amount_black=commission_amount-commission_amount_white
+where a.akts_id in (select id from insurance_akts where    number like '%.12.14') and cc.person_types_id<>6
+
+
+update insurance_akts_contents a
+join insurance_akts cc on cc.id=a.akts_id
+set commission_amount_white=commission_amount,commission_amount_black=0
+where a.akts_id in (select id from insurance_akts where    number like '%.12.14') and cc.person_types_id=6

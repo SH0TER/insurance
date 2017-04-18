@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solutions xsi:noNamespaceSchemaLocation="http://express-credit.in.ua/schemas/solutions.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<solution>
+		<number>26-171207</number><!--номер анкеты, строка-->
+		<expert_currenciesId>UAH</expert_currenciesId><!--Валюта-->
+
+		<expert_percent>13.65</expert_percent>
+		<!--Процентная ставка-->
+		<expert_percent2>13.65</expert_percent2>
+		<!--Процентная ставка 2-го року-->
+		<expert_percent3>13.65</expert_percent3>
+		<!--Процентная ставка 3-го року-->
+		<expert_commission_monthly>0.00</expert_commission_monthly>
+		<!--Щомісячна комісія, %-->
+		<expert_commission_monthlyAmount>0.00</expert_commission_monthlyAmount>
+		<!--Щомісячна комісія, грн-->
+		<expert_period>84</expert_period>
+		<!--Срок кредита в месяцах-->
+		<expert_initialInstalment>30</expert_initialInstalment>
+		<!--Аванс авто, %-->
+		<expert_initialInstalmentAmount>15594.00</expert_initialInstalmentAmount>
+		<!--Аванс авто, грн-->
+		<expert_initialInstalmentGBOAmount>1000.00</expert_initialInstalmentGBOAmount>
+		<!--Аванс ГБО, грн-->
+		
+		<expert_credit_amount>15.500</expert_credit_amount>
+		<!--Сумма кредита в валюте кредита-->
+		<expert_credit_amountGBO>15.500</expert_credit_amountGBO>
+		<!--Сумма кредита ГБО-->
+
+		<solutions_statesTitle>погоджено</solutions_statesTitle>
+		<!--Статус кредитного решения-->
+		<comment>ываываыва</comment>
+		<!--коментарий-->
+		
+		<agree>
+			<expert_carMonthlyPaymentAmount>200.87</expert_carMonthlyPaymentAmount><!--Сумма ежемесячного платежа, в том числе комиссий (в валюте кредита)-->
+			
+			<expert_kasko_includeInsurance>ні</expert_kasko_includeInsurance><!--Включить страховку КАСКО-->
+			<insurance_kasko_amount>0.00</insurance_kasko_amount><!--стоимость КАСКО грн-->
+			
+			<expert_go_includeInsurance>ні</expert_go_includeInsurance><!--Включить страховку ГО-->
+			<insurance_go_amount>0.00</insurance_go_amount><!--стоимость ГО грн-->
+			
+			<expert_life_includeInsurance>ні</expert_life_includeInsurance><!--Включить страховку Жизни-->
+			<insurance_life_amount>0.00</insurance_life_amount><!--стоимость страховки Жизни грн-->
+			
+			<expert_creditOpenAmount>50.12</expert_creditOpenAmount><!--Комісія за відкриття кредитного рахунку, грн-->
+
+			<expert_creditLegalizationAmount>35.11</expert_creditLegalizationAmount><!--Комиссия банка за оформление кредитной сделки, грн.-->
+			<expert_creditWorkAmount>35.11</expert_creditWorkAmount><!--Комісія за ведення кредитної справи , грн-->
+	
+			<expert_rcoCarAmount>1300.25</expert_rcoCarAmount><!--Комиссия банка за перечисление денежных средств на автосалон, грн.-->
+			<expert_notaryAmount>50.40</expert_notaryAmount><!--Нотариальное оформление, грн.-->
+			<expert_moving_propertyAmount>50.40</expert_moving_propertyAmount><!--Внесення до реєстру рухомого майна, грн-->
+			<expert_rcoOtherAmount>50.40</expert_rcoOtherAmount><!--Інші комісії банку, грн.-->
+			
+			<letterFilename>file.pdf</letterFilename>
+			<!--Гарантийное письмо, название файла-->
+			<letterContent>cWVxd2Vxd2Vx</letterContent>
+			<!--Гарантийное письмо, содержимое файла-->
+		</agree>
+		<reject>
+			<commentReject>комментарий отказа</commentReject>
+			<!--Комментарий отказа-->
+		</reject>
+
+	</solution>
+</solutions>

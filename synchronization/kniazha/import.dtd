@@ -1,0 +1,4 @@
+<!ELEMENT resultset (row)* >
+<!ELEMENT row (column)+ >
+<!ELEMENT column (#PCDATA)>
+<!ATTLIST column null (true | false) "false" name CDATA #IMPLIED>

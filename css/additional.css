@@ -1,0 +1,219 @@
+.total TD {
+    font-weight: bold;
+    background-color: #D8FCD8;
+}
+.apply {
+    background-color: #F0F0F0;
+}
+.created TD {
+    background-color: #F0F0F0;
+}
+.error TD {
+    background-color: #ffc7ec;
+}
+.process TD {
+    background-color: #D8FCD8;
+}
+.finished TD {
+    background-color: #FFFF00;
+}
+.spoilt TD {
+    background-color: #FCE5D8;
+}
+.not TD {
+
+}
+.partial TD {
+    background-color: #ffc7ec;
+}
+.comment TD {
+    background-color: #ff6699;
+}
+.payed TD, .over TD {
+    background-color: #D8FCD8;
+}
+.commission TD, .commission TD A {
+    background-color: #ff0000;
+}
+.oversent TD {
+    background-color: #fff000;	
+}
+.overresent TD {
+    background-color: #ff0000;	
+}
+.bold, .bold A {
+    font-weight: bold;
+}
+.italic, .italic A {
+    font-style: italic;
+}
+.special TD, .special TD A {
+    color: #FF0000 !important;
+}
+.manual {
+    font-weight: bold;
+}
+.is_bank TD, .is_bank TD A {
+    font-style: italic;
+}
+.rejected TD {
+    background-color: #FCE5D8;
+}
+
+.top {
+    vertical-align: top;
+}
+.section {
+    height: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 15px 0px 5px 0px;
+    border-bottom: 1px solid #4453AF;
+    vertical-align: bottom;
+}
+.section .links{
+    font-size: 12px;
+    font-weight: normal;
+}
+.section2  {
+    height: 20px;
+    margin: 15px 0px 5px 0px;
+    border-top: 1px solid #4453AF;
+}
+.section2   TD {
+	white-space: nowrap;
+}
+.lastname, .firstname, .patronymicname {
+    width: 172px;
+}
+.code {
+    width: 90px;
+}
+.series {
+    width: 35px;
+}
+.number, .carsModification, .carsColor {
+    width: 100px;
+}
+.area, .city {
+    width: 120px;
+}
+.zip, .house, .flat, .series2 {
+    width: 40px;
+}
+.phone {
+    width: 90px;
+}
+.email {
+    width: 170px;
+}
+.address {
+    width: 172px;
+}
+.street, .area, .shassi {
+    width: 135px;
+}
+.area {
+    width: 170px;
+}
+.edrpou, .sign {
+    width: 80px;
+}
+.company, .position, .ground {
+    width: 207px;
+}
+.place {
+    width: 168px;
+}
+.year {
+    width: 40px;
+}
+.email {
+    width: 150px;
+}
+.number {
+    width: 100px;
+}
+.bankAccount {
+    width: 200px;
+}
+.mfo {
+    width: 65px;
+}
+.u {
+    text-decoration: line-through;
+}
+TD .warning {
+    color: #FF0000;
+    font-weight: bold;
+}
+.notEqual {
+	border: 3px solid #FF0000;
+}
+.attention {
+	color: #ff0000;
+}
+.total TD {
+    font-weight: bold;
+    background-color: #D8FCD8;
+}
+.apply {
+    background-color: #F0F0F0;
+}
+.created TD {
+    background-color: #F0F0F0;
+}
+.error TD {
+    background-color: #ffc7ec;
+}
+TR .green {
+    background-color: #CCFFCC;
+}
+.yellow TD {
+    background-color: #ffff8d;
+}
+.red TD {
+    background-color: #ffc8c8;
+}
+.darkred TD {
+    background-color: #ff0000;
+}
+.orange TD {
+	background-color: #ff7f50;
+}
+.magenta TD {
+	background-color: #ff00ff;
+}
+.violete TD {
+	background-color: #e694e2;
+}
+.lightpink TD{
+	background-color: #FF69B4;
+}
+.lightblue TD {
+    background-color: #a7dfff;
+}
+
+.darkblue TD {
+    background-color: #316ac5;
+}
+
+.mess_answer TD{
+    background-color: #cdf7a3;
+}
+
+.mess_interrupted TD{
+    background-color: #FFBBBB;
+}
+
+.repairs_magents TD {
+	background-color: #990066;
+}
+
+.repairs_red TD {
+	background-color: #FF0000;
+}
+
+.repairs_orange TD {
+	background-color: #FF6600;
+}

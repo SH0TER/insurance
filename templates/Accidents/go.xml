@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resultset>
+	{section name="roll" loop=$list}
+ 	<go>
+		<number>{$list[roll].number}</number>
+		<date>{$list[roll].date}</date>
+		<datetime>{$list[roll].datetime}</datetime>
+		<assistanceDate>{$list[roll].assistance_date}</assistanceDate>
+        <amountRough>{$list[roll].amount_rough}</amountRough>
+
+		<policiesBrand>{$list[roll].policies_brand}</policiesBrand>
+		<policiesModel>{$list[roll].policies_model}</policiesModel>
+		<policiesSign>{$list[roll].policies_sign}</policiesSign>
+		<policiesShassi>{$list[roll].policies_shassi}</policiesShassi>
+
+		<policiesNumber>{$list[roll].policies_number}</policiesNumber>
+		<applicationDate>{$list[roll].application_date}</applicationDate>
+
+		<itemsPrice>{$list[roll].items_price}</itemsPrice>
+
+
+
+
+        <beginDateTime>{$list[roll].begin_datetime}</beginDateTime>
+		<endDateTime>{$list[roll].end_datetime}</endDateTime>
+
+
+	</go>
+	{/section}
+</resultset>

@@ -1,0 +1,1320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://e-insurance.in.ua/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://e-insurance.in.ua/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://e-insurance.in.ua/">
+      <s:element name="getKaskoPolicesByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="from" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="to" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getKaskoPolicesByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getKaskoPolicesByDatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+	  <s:element name="getKaskoAddPolicesByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="from" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="to" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getKaskoAddPolicesByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getKaskoAddPolicesByDatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getKaskoPolicesByNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getKaskoPolicesByNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getKaskoPolicesByNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+	  <s:element name="getKaskoAddPolicesByNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getKaskoAddPolicesByNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getKaskoAddPolicesByNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getKaskoPolices">
+        <s:complexType />
+      </s:element>
+      <s:element name="getKaskoPolicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getKaskoPolicesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+	  <s:element name="getKaskoAddPolices">
+        <s:complexType />
+      </s:element>
+      <s:element name="getKaskoAddPolicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getKaskoAddPolicesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGOPolicesByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="from" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="to" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGOPolicesByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGOPolicesByDatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGOPolicesByNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGOPolicesByNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGOPolicesByNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGOPolices">
+        <s:complexType />
+      </s:element>
+      <s:element name="getGOPolicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGOPolicesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+	  
+	  <s:element name="getNSPolicesByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="from" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="to" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNSPolicesByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNSPolicesByDatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNSPolicesByNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNSPolicesByNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNSPolicesByNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNSPolices">
+        <s:complexType />
+      </s:element>
+      <s:element name="getNSPolicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNSPolicesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+	  
+	  
+      <s:element name="getDGOPolicesByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="from" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="to" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDGOPolicesByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDGOPolicesByDatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDGOPolicesByNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDGOPolicesByNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDGOPolicesByNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDGOPolices">
+        <s:complexType />
+      </s:element>
+      <s:element name="getDGOPolicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDGOPolicesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDSKVPolicesByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="from" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="to" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDSKVPolicesByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDSKVPolicesByDatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDSKVPolicesByNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDSKVPolicesByNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDSKVPolicesByNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDSKVPolices">
+        <s:complexType />
+      </s:element>
+      <s:element name="getDSKVPolicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDSKVPolicesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+	  <s:element name="getPropertyPolicesByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="from" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="to" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPropertyPolicesByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPropertyPolicesByDatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPropertyPolicesByNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPropertyPolicesByNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPropertyPolicesByNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPropertyPolices">
+        <s:complexType />
+      </s:element>
+      <s:element name="getPropertyPolicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPropertyPolicesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+	  
+	  <s:element name="getDrivePolicesByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="from" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="to" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDrivePolicesByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDrivePolicesByDatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDrivePolicesByNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDrivePolicesByNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDrivePolicesByNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDrivePolices">
+        <s:complexType />
+      </s:element>
+      <s:element name="getDrivePolicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDrivePolicesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+	  
+
+
+	  <s:element name="getDriveGeneralPolicesByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="from" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="to" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDriveGeneralPolicesByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDriveGeneralPolicesByDatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDriveGeneralPolicesByNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDriveGeneralPolicesByNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDriveGeneralPolicesByNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDriveGeneralPolices">
+        <s:complexType />
+      </s:element>
+      <s:element name="getDriveGeneralPolicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDriveGeneralPolicesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+
+
+	  <s:element name="getCargoPolicesByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="from" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="to" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCargoPolicesByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCargoPolicesByDatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCargoPolicesByNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCargoPolicesByNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCargoPolicesByNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCargoPolices">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCargoPolicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCargoPolicesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getKaskoPolicesByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:getKaskoPolicesByDates" />
+  </wsdl:message>
+  <wsdl:message name="getKaskoPolicesByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:getKaskoPolicesByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKaskoAddPolicesByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:getKaskoAddPolicesByDates" />
+  </wsdl:message>
+  <wsdl:message name="getKaskoAddPolicesByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:getKaskoAddPolicesByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKaskoPolicesByNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:getKaskoPolicesByNumber" />
+  </wsdl:message>
+  <wsdl:message name="getKaskoPolicesByNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:getKaskoPolicesByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKaskoAddPolicesByNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:getKaskoAddPolicesByNumber" />
+  </wsdl:message>
+  <wsdl:message name="getKaskoAddPolicesByNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:getKaskoAddPolicesByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKaskoPolicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getKaskoPolices" />
+  </wsdl:message>
+  <wsdl:message name="getKaskoPolicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getKaskoPolicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKaskoAddPolicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getKaskoAddPolices" />
+  </wsdl:message>
+  <wsdl:message name="getKaskoAddPolicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getKaskoAddPolicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGOPolicesByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:getGOPolicesByDates" />
+  </wsdl:message>
+  <wsdl:message name="getGOPolicesByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:getGOPolicesByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGOPolicesByNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:getGOPolicesByNumber" />
+  </wsdl:message>
+  <wsdl:message name="getGOPolicesByNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:getGOPolicesByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGOPolicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getGOPolices" />
+  </wsdl:message>
+  <wsdl:message name="getGOPolicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getGOPolicesResponse" />
+  </wsdl:message>
+  
+  <wsdl:message name="getNSPolicesByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:getNSPolicesByDates" />
+  </wsdl:message>
+  <wsdl:message name="getNSPolicesByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:getNSPolicesByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNSPolicesByNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:getNSPolicesByNumber" />
+  </wsdl:message>
+  <wsdl:message name="getNSPolicesByNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:getNSPolicesByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNSPolicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getNSPolices" />
+  </wsdl:message>
+  <wsdl:message name="getNSPolicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getNSPolicesResponse" />
+  </wsdl:message>
+  
+  <wsdl:message name="getDGOPolicesByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:getDGOPolicesByDates" />
+  </wsdl:message>
+  <wsdl:message name="getDGOPolicesByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:getDGOPolicesByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDGOPolicesByNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:getDGOPolicesByNumber" />
+  </wsdl:message>
+  <wsdl:message name="getDGOPolicesByNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:getDGOPolicesByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDGOPolicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getDGOPolices" />
+  </wsdl:message>
+  <wsdl:message name="getDGOPolicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getDGOPolicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDSKVPolicesByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:getDSKVPolicesByDates" />
+  </wsdl:message>
+  <wsdl:message name="getDSKVPolicesByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:getDSKVPolicesByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDSKVPolicesByNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:getDSKVPolicesByNumber" />
+  </wsdl:message>
+  <wsdl:message name="getDSKVPolicesByNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:getDSKVPolicesByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDSKVPolicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getDSKVPolices" />
+  </wsdl:message>
+  <wsdl:message name="getDSKVPolicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getDSKVPolicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPropertyPolicesByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:getPropertyPolicesByDates" />
+  </wsdl:message>
+  <wsdl:message name="getPropertyPolicesByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:getPropertyPolicesByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPropertyPolicesByNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:getPropertyPolicesByNumber" />
+  </wsdl:message>
+  <wsdl:message name="getPropertyPolicesByNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:getPropertyPolicesByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPropertyPolicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getPropertyPolices" />
+  </wsdl:message>
+  <wsdl:message name="getPropertyPolicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getPropertyPolicesResponse" />
+  </wsdl:message>
+  
+  <wsdl:message name="getDrivePolicesByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:getDrivePolicesByDates" />
+  </wsdl:message>
+  <wsdl:message name="getDrivePolicesByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:getDrivePolicesByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDrivePolicesByNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:getDrivePolicesByNumber" />
+  </wsdl:message>
+  <wsdl:message name="getDrivePolicesByNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:getDrivePolicesByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDrivePolicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getDrivePolices" />
+  </wsdl:message>
+  <wsdl:message name="getDrivePolicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getDrivePolicesResponse" />
+  </wsdl:message>
+
+
+  <wsdl:message name="getDriveGeneralPolicesByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:getDriveGeneralPolicesByDates" />
+  </wsdl:message>
+  <wsdl:message name="getDriveGeneralPolicesByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:getDriveGeneralPolicesByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDriveGeneralPolicesByNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:getDriveGeneralPolicesByNumber" />
+  </wsdl:message>
+  <wsdl:message name="getDriveGeneralPolicesByNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:getDriveGeneralPolicesByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDriveGeneralPolicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getDriveGeneralPolices" />
+  </wsdl:message>
+  <wsdl:message name="getDriveGeneralPolicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getDriveGeneralPolicesResponse" />
+  </wsdl:message>
+  
+  <wsdl:message name="getCargoPolicesByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:getCargoPolicesByDates" />
+  </wsdl:message>
+  <wsdl:message name="getCargoPolicesByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:getCargoPolicesByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCargoPolicesByNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:getCargoPolicesByNumber" />
+  </wsdl:message>
+  <wsdl:message name="getCargoPolicesByNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:getCargoPolicesByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCargoPolicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getCargoPolices" />
+  </wsdl:message>
+  <wsdl:message name="getCargoPolicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getCargoPolicesResponse" />
+  </wsdl:message>
+  
+  <wsdl:portType name="PoliciesImportSoap">
+    <wsdl:operation name="getKaskoPolicesByDates">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов КАСКО за выбраный диапазон</wsdl:documentation>
+      <wsdl:input message="tns:getKaskoPolicesByDatesSoapIn" />
+      <wsdl:output message="tns:getKaskoPolicesByDatesSoapOut" />
+    </wsdl:operation>
+	<wsdl:operation name="getKaskoAddPolicesByDates">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов КАСКО за выбраный диапазон</wsdl:documentation>
+      <wsdl:input message="tns:getKaskoAddPolicesByDatesSoapIn" />
+      <wsdl:output message="tns:getKaskoAddPolicesByDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getKaskoPolicesByNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов КАСКО по номеру</wsdl:documentation>
+      <wsdl:input message="tns:getKaskoPolicesByNumberSoapIn" />
+      <wsdl:output message="tns:getKaskoPolicesByNumberSoapOut" />
+    </wsdl:operation>
+	<wsdl:operation name="getKaskoAddPolicesByNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов КАСКО по номеру</wsdl:documentation>
+      <wsdl:input message="tns:getKaskoAddPolicesByNumberSoapIn" />
+      <wsdl:output message="tns:getKaskoAddPolicesByNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getKaskoPolices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов КАСКО за текущий день</wsdl:documentation>
+      <wsdl:input message="tns:getKaskoPolicesSoapIn" />
+      <wsdl:output message="tns:getKaskoPolicesSoapOut" />
+    </wsdl:operation>
+	<wsdl:operation name="getKaskoAddPolices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов КАСКО за текущий день</wsdl:documentation>
+      <wsdl:input message="tns:getKaskoAddPolicesSoapIn" />
+      <wsdl:output message="tns:getKaskoAddPolicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGOPolicesByDates">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов ГО за выбраный диапазон</wsdl:documentation>
+      <wsdl:input message="tns:getGOPolicesByDatesSoapIn" />
+      <wsdl:output message="tns:getGOPolicesByDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGOPolicesByNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов ГО по номеру</wsdl:documentation>
+      <wsdl:input message="tns:getGOPolicesByNumberSoapIn" />
+      <wsdl:output message="tns:getGOPolicesByNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGOPolices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов ГО за текущий день</wsdl:documentation>
+      <wsdl:input message="tns:getGOPolicesSoapIn" />
+      <wsdl:output message="tns:getGOPolicesSoapOut" />
+    </wsdl:operation>
+	
+	 <wsdl:operation name="getNSPolicesByDates">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов ГО за выбраный диапазон</wsdl:documentation>
+      <wsdl:input message="tns:getNSPolicesByDatesSoapIn" />
+      <wsdl:output message="tns:getNSPolicesByDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNSPolicesByNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов ГО по номеру</wsdl:documentation>
+      <wsdl:input message="tns:getNSPolicesByNumberSoapIn" />
+      <wsdl:output message="tns:getNSPolicesByNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNSPolices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов ГО за текущий день</wsdl:documentation>
+      <wsdl:input message="tns:getNSPolicesSoapIn" />
+      <wsdl:output message="tns:getNSPolicesSoapOut" />
+    </wsdl:operation>
+	
+    <wsdl:operation name="getDGOPolicesByDates">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов ДГО за выбраный диапазон</wsdl:documentation>
+      <wsdl:input message="tns:getDGOPolicesByDatesSoapIn" />
+      <wsdl:output message="tns:getDGOPolicesByDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDGOPolicesByNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов ДГО по номеру</wsdl:documentation>
+      <wsdl:input message="tns:getDGOPolicesByNumberSoapIn" />
+      <wsdl:output message="tns:getDGOPolicesByNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDGOPolices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов ДГО за текущий день</wsdl:documentation>
+      <wsdl:input message="tns:getDGOPolicesSoapIn" />
+      <wsdl:output message="tns:getDGOPolicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDSKVPolicesByDates">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов ДГО за выбраный диапазон</wsdl:documentation>
+      <wsdl:input message="tns:getDSKVPolicesByDatesSoapIn" />
+      <wsdl:output message="tns:getDSKVPolicesByDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDSKVPolicesByNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов ДГО по номеру</wsdl:documentation>
+      <wsdl:input message="tns:getDSKVPolicesByNumberSoapIn" />
+      <wsdl:output message="tns:getDSKVPolicesByNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDSKVPolices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов ДГО за текущий день</wsdl:documentation>
+      <wsdl:input message="tns:getDSKVPolicesSoapIn" />
+      <wsdl:output message="tns:getDSKVPolicesSoapOut" />
+    </wsdl:operation>
+	
+	<wsdl:operation name="getPropertyPolicesByDates">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов Майна за выбраный диапазон</wsdl:documentation>
+      <wsdl:input message="tns:getPropertyPolicesByDatesSoapIn" />
+      <wsdl:output message="tns:getPropertyPolicesByDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPropertyPolicesByNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов Майна по номеру</wsdl:documentation>
+      <wsdl:input message="tns:getPropertyPolicesByNumberSoapIn" />
+      <wsdl:output message="tns:getPropertyPolicesByNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPropertyPolices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов Майна за текущий день</wsdl:documentation>
+      <wsdl:input message="tns:getPropertyPolicesSoapIn" />
+      <wsdl:output message="tns:getPropertyPolicesSoapOut" />
+    </wsdl:operation>
+	
+	<wsdl:operation name="getDrivePolicesByDates">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов Перегоны за выбраный диапазон</wsdl:documentation>
+      <wsdl:input message="tns:getDrivePolicesByDatesSoapIn" />
+      <wsdl:output message="tns:getDrivePolicesByDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDrivePolicesByNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов Перегоны по номеру</wsdl:documentation>
+      <wsdl:input message="tns:getDrivePolicesByNumberSoapIn" />
+      <wsdl:output message="tns:getDrivePolicesByNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDrivePolices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов Перегоны за текущий день</wsdl:documentation>
+      <wsdl:input message="tns:getDrivePolicesSoapIn" />
+      <wsdl:output message="tns:getDrivePolicesSoapOut" />
+    </wsdl:operation>
+
+	<wsdl:operation name="getDriveGeneralPolicesByDates">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов Перегоны за выбраный диапазон</wsdl:documentation>
+      <wsdl:input message="tns:getDriveGeneralPolicesByDatesSoapIn" />
+      <wsdl:output message="tns:getDriveGeneralPolicesByDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDriveGeneralPolicesByNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов Перегоны по номеру</wsdl:documentation>
+      <wsdl:input message="tns:getDriveGeneralPolicesByNumberSoapIn" />
+      <wsdl:output message="tns:getDriveGeneralPolicesByNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDriveGeneralPolices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов Перегоны за текущий день</wsdl:documentation>
+      <wsdl:input message="tns:getDriveGeneralPolicesSoapIn" />
+      <wsdl:output message="tns:getDriveGeneralPolicesSoapOut" />
+    </wsdl:operation>
+	
+	<wsdl:operation name="getCargoPolicesByDates">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов Грузы за выбраный диапазон</wsdl:documentation>
+      <wsdl:input message="tns:getCargoPolicesByDatesSoapIn" />
+      <wsdl:output message="tns:getCargoPolicesByDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCargoPolicesByNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов Грузы по номеру</wsdl:documentation>
+      <wsdl:input message="tns:getCargoPolicesByNumberSoapIn" />
+      <wsdl:output message="tns:getCargoPolicesByNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCargoPolices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение полисов Грузы за текущий день</wsdl:documentation>
+      <wsdl:input message="tns:getCargoPolicesSoapIn" />
+      <wsdl:output message="tns:getCargoPolicesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PoliciesImportSoap" type="tns:PoliciesImportSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getKaskoPolicesByDates">
+      <soap:operation soapAction="http://e-insurance.in.ua/getKaskoPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	<wsdl:operation name="getKaskoAddPolicesByDates">
+      <soap:operation soapAction="http://e-insurance.in.ua/getKaskoAddPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKaskoPolicesByNumber">
+      <soap:operation soapAction="http://e-insurance.in.ua/getKaskoPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	 <wsdl:operation name="getKaskoAddPolicesByNumber">
+      <soap:operation soapAction="http://e-insurance.in.ua/getKaskoAddPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKaskoPolices">
+      <soap:operation soapAction="http://e-insurance.in.ua/getKaskoPolices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	<wsdl:operation name="getKaskoAddPolices">
+      <soap:operation soapAction="http://e-insurance.in.ua/getKaskoAddPolices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGOPolicesByDates">
+      <soap:operation soapAction="http://e-insurance.in.ua/getGOPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGOPolicesByNumber">
+      <soap:operation soapAction="http://e-insurance.in.ua/getGOPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGOPolices">
+      <soap:operation soapAction="http://e-insurance.in.ua/getGOPolices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	
+	<wsdl:operation name="getNSPolicesByDates">
+      <soap:operation soapAction="http://e-insurance.in.ua/getNSPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNSPolicesByNumber">
+      <soap:operation soapAction="http://e-insurance.in.ua/getNSPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNSPolices">
+      <soap:operation soapAction="http://e-insurance.in.ua/getNSPolices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	
+    <wsdl:operation name="getDGOPolicesByDates">
+      <soap:operation soapAction="http://e-insurance.in.ua/getDGOPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDGOPolicesByNumber">
+      <soap:operation soapAction="http://e-insurance.in.ua/getDGOPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDGOPolices">
+      <soap:operation soapAction="http://e-insurance.in.ua/getDGOPolices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDSKVPolicesByDates">
+      <soap:operation soapAction="http://e-insurance.in.ua/getDSKVPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDSKVPolicesByNumber">
+      <soap:operation soapAction="http://e-insurance.in.ua/getDSKVPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDSKVPolices">
+      <soap:operation soapAction="http://e-insurance.in.ua/getDSKVPolices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	
+	 <wsdl:operation name="getPropertyPolicesByDates">
+      <soap:operation soapAction="http://e-insurance.in.ua/getPropertyPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPropertyPolicesByNumber">
+      <soap:operation soapAction="http://e-insurance.in.ua/getPropertyPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPropertyPolices">
+      <soap:operation soapAction="http://e-insurance.in.ua/getPropertyPolices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	
+	<wsdl:operation name="getDrivePolicesByDates">
+      <soap:operation soapAction="http://e-insurance.in.ua/getDrivePolicesByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDrivePolicesByNumber">
+      <soap:operation soapAction="http://e-insurance.in.ua/getDrivePolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDrivePolices">
+      <soap:operation soapAction="http://e-insurance.in.ua/getDrivePolices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+
+	<wsdl:operation name="getDriveGeneralPolicesByDates">
+      <soap:operation soapAction="http://e-insurance.in.ua/getDriveGeneralPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDriveGeneralPolicesByNumber">
+      <soap:operation soapAction="http://e-insurance.in.ua/getDriveGeneralPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDriveGeneralPolices">
+      <soap:operation soapAction="http://e-insurance.in.ua/getDriveGeneralPolices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	
+	<wsdl:operation name="getCargoPolicesByDates">
+      <soap:operation soapAction="http://e-insurance.in.ua/getCargoPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCargoPolicesByNumber">
+      <soap:operation soapAction="http://e-insurance.in.ua/getCargoPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCargoPolices">
+      <soap:operation soapAction="http://e-insurance.in.ua/getCargoPolices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PoliciesImportSoap12" type="tns:PoliciesImportSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getKaskoPolicesByDates">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getKaskoPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	 <wsdl:operation name="getKaskoAddPolicesByDates">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getKaskoAddPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKaskoPolicesByNumber">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getKaskoPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	<wsdl:operation name="getKaskoAddPolicesByNumber">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getKaskoAddPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKaskoPolices">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getKaskoPolices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	<wsdl:operation name="getKaskoAddPolices">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getKaskoAddPolices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGOPolicesByDates">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getGOPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGOPolicesByNumber">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getGOPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGOPolices">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getGOPolices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	
+	<wsdl:operation name="getNSPolicesByDates">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getNSPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNSPolicesByNumber">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getNSPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNSPolices">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getNSPolices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	
+    <wsdl:operation name="getDGOPolicesByDates">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getDGOPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDGOPolicesByNumber">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getDGOPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDGOPolices">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getDGOPolices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDSKVPolicesByDates">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getDSKVPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDSKVPolicesByNumber">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getDSKVPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDSKVPolices">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getDSKVPolices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	
+	<wsdl:operation name="getPropertyPolicesByDates">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getPropertyPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPropertyPolicesByNumber">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getPropertyPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPropertyPolices">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getPropertyPolices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	
+	<wsdl:operation name="getDrivePolicesByDates">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getDrivePolicesByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDrivePolicesByNumber">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getDrivePolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDrivePolices">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getDrivePolices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+	
+	<wsdl:operation name="getDriveGeneralPolicesByDates">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getDriveGeneralPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDriveGeneralPolicesByNumber">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getDriveGeneralPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDriveGeneralPolices">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getDriveGeneralPolices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+
+	<wsdl:operation name="getCargoPolicesByDates">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getCargoPolicesByDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCargoPolicesByNumber">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getCargoPolicesByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCargoPolices">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getCargoPolices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PoliciesImport">
+    <wsdl:port name="PoliciesImportSoap" binding="tns:PoliciesImportSoap">
+      <soap:address location="http://e-insurance.in.ua/synchronization/express/index.php" />
+    </wsdl:port>
+    <wsdl:port name="PoliciesImportSoap12" binding="tns:PoliciesImportSoap12">
+      <soap12:address location="http://e-insurance.in.ua/synchronization/express/index.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

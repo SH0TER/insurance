@@ -1,0 +1,105 @@
+update insurance_policy_payments_calendar a
+join  insurance_policies_kasko b on b.policies_id=a.policies_id
+set a.commission_agent_amount=100
+WHERE a.amount =500
+
+--Денисов - Херсон авто -1438.12.14  -3317-14.12.14
+insert into insurance_akts_contents(
+akts_id,payments_calendar_id,policies_id,number,payment_amount,base_commission_percent,base_commission_amount,
+commission_percent,commission_amount,types_id,statuses_id,documents,created,modified,manual
+)
+
+select 38111,
+a.payments_calendar_id,a.policies_id,a.number,a.payment_amount,a.base_commission_percent,a.base_commission_amount,
+a.commission_percent,a.commission_amount,a.types_id,a.statuses_id,a.documents,NOW(),NOW(),1
+
+from insurance_akts_contents a where akts_id=(select id from insurance_akts where number='6451/1.12.14') 
+and commission_amount>0 and types_id=1;
+
+
+
+--Веровчук 3942.12.14
+insert into insurance_akts_contents(
+akts_id,payments_calendar_id,policies_id,number,payment_amount,base_commission_percent,base_commission_amount,
+commission_percent,commission_amount,types_id,statuses_id,documents,created,modified,manual
+)
+
+select 37115,
+payments_calendar_id,policies_id,number,payment_amount,base_commission_percent,base_commission_amount,
+base_commission_percent/2,base_commission_amount/2,types_id,statuses_id,documents,NOW(),NOW(),1
+
+from insurance_akts_contents where akts_id=(select id from insurance_akts where number='13353.12.14') 
+and base_commission_amount>0 and types_id=1;
+
+
+--вольская - 5091.12.14  -4402-14.12.14
+insert into insurance_akts_contents(
+akts_id,payments_calendar_id,policies_id,number,payment_amount,base_commission_percent,base_commission_amount,
+commission_percent,commission_amount,types_id,statuses_id,documents,created,modified,manual
+)
+
+select 38280,
+payments_calendar_id,policies_id,number,payment_amount,base_commission_percent,base_commission_amount,
+base_commission_percent/2,base_commission_amount/2,types_id,statuses_id,documents,NOW(),NOW(),1
+
+from insurance_akts_contents where akts_id=(select id from insurance_akts where number='7148-14.12.14') 
+and commission_amount>0 and types_id=1;
+
+--дорофеев - 6427.12.14
+insert into insurance_akts_contents(
+akts_id,payments_calendar_id,policies_id,number,payment_amount,base_commission_percent,base_commission_amount,
+commission_percent,commission_amount,types_id,statuses_id,documents,created,modified,manual
+)
+
+select 29448,
+payments_calendar_id,policies_id,number,payment_amount,base_commission_percent,base_commission_amount,
+base_commission_percent/2,base_commission_amount/2,types_id,statuses_id,documents,NOW(),NOW(),1
+
+from insurance_akts_contents where akts_id=(select id from insurance_akts where number='12566.12.14') 
+and base_commission_amount>0 and types_id=1;
+
+--петрова - 3646.12.14  -3688-14.12.14
+insert into insurance_akts_contents(
+akts_id,payments_calendar_id,policies_id,number,payment_amount,base_commission_percent,base_commission_amount,
+commission_percent,commission_amount,types_id,statuses_id,documents,created,modified,manual
+)
+
+select 38146,
+payments_calendar_id,policies_id,number,payment_amount,base_commission_percent,base_commission_amount,
+base_commission_percent/2,base_commission_amount/2,types_id,statuses_id,documents,NOW(),NOW(),1
+
+from insurance_akts_contents where akts_id=(select id from insurance_akts where number='6553.12.14') 
+and commission_amount>0 and types_id=1;
+
+
+--курбет -- 6496.12.14
+insert into insurance_akts_contents(
+akts_id,payments_calendar_id,policies_id,number,payment_amount,base_commission_percent,base_commission_amount,
+commission_percent,commission_amount,types_id,statuses_id,documents,created,modified,manual
+)
+
+select 37362,
+a.payments_calendar_id,a.policies_id,a.number,a.payment_amount,a.base_commission_percent,a.base_commission_amount,
+if(a.commission_percent>1,1,a.commission_percent),if(a.commission_percent>1,1,a.commission_percent)*a.payment_amount/100,a.types_id,a.statuses_id,a.documents,NOW(),NOW(),1
+
+from insurance_akts_contents a 
+join insurance_policies b on a.policies_id=b.id
+where a.akts_id=(select id from insurance_akts where number='3859-14.12.14') and b.item like 'ЗАЗ/%' and   a.commission_amount>0
+
+
+ 
+
+
+---Терещенко --5047.12.14 --4356-14.12.14
+insert into insurance_akts_contents(
+akts_id,payments_calendar_id,policies_id,number,payment_amount,base_commission_percent,base_commission_amount,
+commission_percent,commission_amount,types_id,statuses_id,documents,created,modified,manual
+)
+
+select 38268,
+a.payments_calendar_id,a.policies_id,a.number,a.payment_amount,a.base_commission_percent,a.base_commission_amount,
+if(a.commission_percent>1,1,a.commission_percent),if(a.commission_percent>1,1,a.commission_percent)*a.payment_amount/100,a.types_id,a.statuses_id,a.documents,NOW(),NOW(),1
+
+from insurance_akts_contents a 
+join insurance_policies b on a.policies_id=b.id
+where a.akts_id=(select id from insurance_akts where number='3964-14.12.14')   and a.commission_amount>0 and a.documents>0 and a.statuses_id>1

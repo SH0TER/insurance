@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resultset>
+	{section name="roll" loop=$list}
+ 	<kasko>
+		<number>{$list[roll].number}</number>
+		<date>{$list[roll].date}</date>
+		<datetime>{$list[roll].datetime}</datetime>
+		<assistanceDate>{$list[roll].assistance_date}</assistanceDate>
+        <amountRough>{$list[roll].amount_rough}</amountRough>
+		
+       <policy_amount>{$list[roll].policy_amount}</policy_amount>
+	   <policy_price>{$list[roll].policy_price}</policy_price>
+	   <policy_rate>{$list[roll].policy_rate}</policy_rate>
+	   
+	   
+
+
+		<policiesBrand>{$list[roll].policies_brand}</policiesBrand>
+		<policiesModel>{$list[roll].policies_model}</policiesModel>
+		<policiesSign>{$list[roll].policies_sign}</policiesSign>
+		<policiesYear>{$list[roll].policies_year}</policiesYear>
+		<policiesShassi>{$list[roll].policies_shassi}</policiesShassi>
+		<risksTitle>{$list[roll].risks_title}</risksTitle>
+
+		<policiesNumber>{$list[roll].policies_number}</policiesNumber>
+		<applicationDate>{$list[roll].application_date}</applicationDate>
+
+		<applicationRisksId>{$list[roll].application_risks_id}</applicationRisksId>
+		<itemsPrice>{$list[roll].items_price}</itemsPrice>
+
+		<deductiblesValue0>{$list[roll].deductibles_value0}</deductiblesValue0>
+		<deductiblesAbsolute0>{$list[roll].deductibles_absolute0}</deductiblesAbsolute0>
+		<deductiblesValue1>{$list[roll].deductibles_value1}</deductiblesValue1>
+		<deductiblesAbsolute1>{$list[roll].deductibles_absolute1}</deductiblesAbsolute1>
+
+
+
+        <beginDateTime>{$list[roll].begin_datetime}</beginDateTime>
+		<endDateTime>{$list[roll].end_datetime}</endDateTime>
+
+
+	</kasko>
+	{/section}
+</resultset>

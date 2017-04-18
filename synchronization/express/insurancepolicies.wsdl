@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://e-insurance.in.ua/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://e-insurance.in.ua/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://e-insurance.in.ua/">
+      <s:element name="getPolicies">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conditions" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getPoliciesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPoliciesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPoliciesRisks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="policiesId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPoliciesRisksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPoliciesRisksResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getPolicy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="itemId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPolicyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPolicyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPolicyPaymentAmount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="policiesId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPolicyPaymentAmountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getPolicyPaymentAmountResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getPoliciesSoapIn">
+    <wsdl:part name="parameters" element="tns:getPolicies" />
+  </wsdl:message>
+  <wsdl:message name="getPoliciesSoapOut">
+    <wsdl:part name="parameters" element="tns:getPoliciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPoliciesRisksSoapIn">
+    <wsdl:part name="parameters" element="tns:getPoliciesRisks" />
+  </wsdl:message>
+  <wsdl:message name="getPoliciesRisksSoapOut">
+    <wsdl:part name="parameters" element="tns:getPoliciesRisksResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPolicySoapIn">
+    <wsdl:part name="parameters" element="tns:getPolicy" />
+  </wsdl:message>
+  <wsdl:message name="getPolicySoapOut">
+    <wsdl:part name="parameters" element="tns:getPolicyResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPolicyPaymentAmountSoapIn">
+    <wsdl:part name="parameters" element="tns:getPolicyPaymentAmount" />
+  </wsdl:message>
+  <wsdl:message name="getPolicyPaymentAmountSoapOut">
+    <wsdl:part name="parameters" element="tns:getPolicyPaymentAmountResponse" />
+  </wsdl:message>
+  <wsdl:portType name="InsurancePoliciesServiceSoap">
+    <wsdl:operation name="getPolicies">
+      <wsdl:input message="tns:getPoliciesSoapIn" />
+      <wsdl:output message="tns:getPoliciesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPoliciesRisks">
+      <wsdl:input message="tns:getPoliciesRisksSoapIn" />
+      <wsdl:output message="tns:getPoliciesRisksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPolicy">
+      <wsdl:input message="tns:getPolicySoapIn" />
+      <wsdl:output message="tns:getPolicySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPolicyPaymentAmount">
+      <wsdl:input message="tns:getPolicyPaymentAmountSoapIn" />
+      <wsdl:output message="tns:getPolicyPaymentAmountSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InsurancePoliciesServiceSoap" type="tns:InsurancePoliciesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPolicies">
+      <soap:operation soapAction="http://e-insurance.in.ua/getPolicies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPoliciesRisks">
+      <soap:operation soapAction="http://e-insurance.in.ua/getPoliciesRisks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicy">
+      <soap:operation soapAction="http://e-insurance.in.ua/getPolicy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicyPaymentAmount">
+      <soap:operation soapAction="http://e-insurance.in.ua/getPolicyPaymentAmount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InsurancePoliciesServiceSoap12" type="tns:InsurancePoliciesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPolicies">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getPolicies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPoliciesRisks">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getPoliciesRisks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicy">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getPolicy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicyPaymentAmount">
+      <soap12:operation soapAction="http://e-insurance.in.ua/getPolicyPaymentAmount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InsurancePoliciesService">
+    <wsdl:port name="InsurancePoliciesServiceSoap" binding="tns:InsurancePoliciesServiceSoap">
+      <soap:address location="http://e-insurance.in.ua/synchronization/express/insurancepolicies.php" />
+    </wsdl:port>
+    <wsdl:port name="InsurancePoliciesServiceSoap12" binding="tns:InsurancePoliciesServiceSoap12">
+      <soap12:address location="http://e-insurance.in.ua/synchronization/express/insurancepolicies.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

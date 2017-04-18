@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resultset>
+	{section name="roll" loop=$list}
+ 	<cargo>
+		<number>{$list[roll].number}</number>		
+		<generalNumber>{$list[roll].general_number}</generalNumber>				
+		<date>{$list[roll].date}</date>
+        <amount>{$list[roll].amount}</amount>
+		<price>{$list[roll].price}</price>
+		<rate>{$list[roll].rate}</rate>
+        <beginDateTime>{$list[roll].begin_datetime}</beginDateTime>
+		<endDateTime>{$list[roll].end_datetime}</endDateTime>
+        <personTypesId>{$list[roll].person_types_id}</personTypesId>
+        <company>{$list[roll].company}</company>
+        <edrpou>{$list[roll].edrpou}</edrpou>
+        <insurerLastname>{$list[roll].insurer_lastname}</insurerLastname>
+		<insurerFirstname>{$list[roll].insurer_firstname}</insurerFirstname>
+		<insurerPatronymicname>{$list[roll].insurer_patronymicname}</insurerPatronymicname>
+		<insurerPosition>{$list[roll].insurer_position}</insurerPosition>
+		<insurerDateofbirth>{$list[roll].insurer_dateofbirth}</insurerDateofbirth>
+		<insurerPassportSeries>{$list[roll].insurer_passport_series}</insurerPassportSeries>
+		<insurerPassportNumber>{$list[roll].insurer_passport_number}</insurerPassportNumber>
+		<insurerPassportPlace>{$list[roll].insurer_passport_place}</insurerPassportPlace>
+		<insurerPassportDate>{$list[roll].insurer_passport_date}</insurerPassportDate>
+		<insurerIdentificationCode>{$list[roll].insurer_identification_code}</insurerIdentificationCode>
+		<insurerPhone>{$list[roll].insurer_phone}</insurerPhone>
+		<insurerAddress>{$list[roll].insurer_address}</insurerAddress>
+		<assuredTitle>{$list[roll].assured_title}</assuredTitle>
+        <assuredIdentificationCode>{$list[roll].assured_identification_code}</assuredIdentificationCode>
+        <objects>
+				{section name="itemsroll" loop=$list[roll].items}
+                <object>
+                    <brand>{$list[roll].items[itemsroll].brand}</brand>
+					<model>{$list[roll].items[itemsroll].model}</model>
+                    <price>{$list[roll].items[itemsroll].price}</price>
+                    <quantity>{$list[roll].items[itemsroll].quantity}</quantity>
+                </object>
+				{/section}
+        </objects>
+		<payments>
+			{section name="paymentsroll" loop=$list[roll].paymentsCalendar}
+            <payment>
+				<paymentDate>{$list[roll].paymentsCalendar[paymentsroll].payment_date}</paymentDate>
+				<paymentAmount>{$list[roll].paymentsCalendar[paymentsroll].payment_amount}</paymentAmount>
+            </payment>
+			{/section}
+        </payments>
+
+	</cargo>
+	{/section}
+</resultset>

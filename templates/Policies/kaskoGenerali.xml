@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policies>
+{section name="policy" loop=$list}
+	<policy>
+		<agenciesCode>{$list[policy].agencies_code}</agenciesCode>
+		<!--агенция, юридическое лицо, строка до 10 знаков; обязательно к заполнению-->
+		<agenciesTitle>{$list[policy].agencies_title}</agenciesTitle>
+		<!--агенция, юридическое лицо, строка до 50 знаков; обязательно к заполнению-->
+		<number>{$list[policy].number}</number>
+		<!--номер договора, строка до 20 знаков; обязательно к заполнению-->
+		<date>{$list[policy].date}</date>
+		<!--дата договора, yyyy-mm-dd; обязательно к заполнению-->
+		<price>{$list[policy].price}</price>
+		<!--страховая сумма по договору в грн., decimal(12,2); обязательно к заполнению-->
+		<rate>{$list[policy].rate}</rate>
+		<!--страховой тариф по договору в %, decimal(6,3); обязательно к заполнению-->
+		<amount>{$list[policy].amount}</amount>
+		<!--страховая премия по договору в грн., decimal(10,2); обязательно к заполнению-->
+		<beginDateTime>{$list[policy].begin_datetime|date_format:$smarty.const.DATE_FORMAT}</beginDateTime>
+		<!--дата начала действия договора, yyyy-mm-dd; обязательно к заполнению-->
+		<endDateTime>{$list[policy].end_datetime|date_format:$smarty.const.DATE_FORMAT}</endDateTime>
+		<!--дата окончание действия договора, yyyy-mm-dd; обязательно к заполнению-->
+		<policy_statusesTitle>{$list[policy].policy_statuses_title}</policy_statusesTitle>
+		<!--статус договора, строка до 50 знаков; обязательно к заполнению-->
+		<payment_statusesTitle>{$list[policy].payment_statuses_title}</payment_statusesTitle>
+		<!--!!!комисси по договору!!!, еще надо отработать-->
+		<documents>{$list[policy].documents}</documents>
+		<!--наличие второго экземпляра; "0" - нет, "1" - да; обязательно к заполнению-->
+		<comment>{$list[policy].comment}</comment>
+		<!--комментарий, текст-->
+		<created>{$list[policy].created}</created>
+		<!--дата и время создания договора-->
+		<modified>{$list[policy].modified}</modified>
+		<!--дата и время последней редакции договора-->
+		<ownerPersonTypesTitle>{if $list[policy].owner_person_types_id == 1}Фiзична{elseif $list[policy].owner_person_types_id == 2}Юридична{/if}</ownerPersonTypesTitle>
+		<!--тип владельца транспортного средства, "Фiзична" или "Юридична"; обязательно к заполнению-->
+		<insurerPersonTypesTitle>{if $list[policy].insurer_person_types_id == 1}Фiзична{elseif $list[policy].insurer_person_types_id == 2}Юридична{/if}</insurerPersonTypesTitle>
+		<!--тип страхователя транспортного средства, "Фiзична" или "Юридична"; обязательно к заполнению-->
+		<priorityPaymentsTitle>{if $list[policy].priority_payments_id == 1}СТО{elseif $list[policy].priority_payments_id == 2}експертиза{/if}</priorityPaymentsTitle>
+		<!--приоритет выплаты, "СТО" или "експертиза"; обязательно к заполнению-->
+		<residencesTitle>{if $list[policy].residences_id == 1}стоянка що охороняється{elseif $list[policy].residences_id == 2}будь-яке місце{/if}</residencesTitle>
+		<!--место хранения, "стоянка що охороняється" или "будь-яке місце"; обязательно к заполнению-->
+		<zonesTitle>{$list[policy].zones_title}</zonesTitle>
+		<!--зона покрытия, "Україна", "Україна+Європа", "Україна+СНД" или "Україна+СНД+Європа"; обязательно к заполнению-->
+		<registrationRegionsTitle>{$list[policy].registration_regions_title}</registrationRegionsTitle>
+		<!--
+			"міста з населенням понад 1 млн. чоловік"
+			"міста з населенням 500 тис. - 1 млн. чоловік"
+			"міста з населенням 100 тис. - 500 тис. чоловік"
+			"міста з населенням 50 тис. – 100 тис. чоловік"
+			"населені пункти з населенням менше 50 тис. чоловік"
+		-->
+		<optionsDeteriorationNo>{$list[policy].options_deterioration_no}</optionsDeteriorationNo>
+		<!--с износом "0" или без "1"; обязательно к заполнению-->
+		<optionsFirstEvent>{$list[policy].options_first_accident}</optionsFirstEvent>
+		<!--первое страховое событие "1"; обязательно к заполнению-->
+		<optionsGuiltyNo>{$list[policy].options_guilty_no}</optionsGuiltyNo>
+		<!--без вины "1"; обязательно к заполнению-->
+		<optionsTaxy>{$list[policy].options_taxy}</optionsTaxy>
+		<!--первое страховое событие "1"; обязательно к заполнению-->
+		<optionsAgregateNo>{$list[policy].options_agregate_no}</optionsAgregateNo>
+		<!--агрегатная "0" или не агрегатная "1"; обязательно к заполнению-->
+		<discount>{$list[policy].discount}</discount>
+		<!--размер скидки в %, decimal(5,2); обязательно к заполнению-->
+		<cardCarManWoman>{$list[policy].card_car_man_woman}</cardCarManWoman>
+		<!--номер карточки CarManCarWoman, строка до 13 знаков-->
+		<paymentBrakedownTitle>{$list[policy].payment_brakedown_id}</paymentBrakedownTitle>
+		<!--разбивка платежа; "1" - без разбивки, "2" - полугодичные платежи, "3" - квартальные; обязательно к заполнению-->		
+		<ownerCompany>{$list[policy].owner_company}</ownerCompany>
+		<!--владелец, название компании, строка 150 знаков; обязательно к заполнению, если юридическое лицо-->
+		<ownerBank>{$list[policy].owner_bank}</ownerBank>
+		<!--владелец, название банка, строка 150 знаков; обязательно к заполнению, если юридическое лицо-->
+		<ownerBankAccount>{$list[policy].owner_bank_account}</ownerBankAccount>
+		<!--владелец, расчетный счет, строка 20 знаков; обязательно к заполнению, если юридическое лицо-->
+		<ownerBankMFO>{$list[policy].owner_bank_mfo}</ownerBankMFO>
+		<!--владелец, МФО, строка 6 знаков; обязательно к заполнению, если юридическое лицо-->
+		<ownerEDRPOU>{$list[policy].owner_edrpou}</ownerEDRPOU>
+		<!--владелец, ЕДРПОУ, строка 10 знаков; обязательно к заполнению, если юридическое лицо-->
+		<ownerLastname>{$list[policy].owner_lastname}</ownerLastname>
+		<!--владелец, фамилия, строка 50 знаков; обязательно к заполнению-->
+		<ownerFirstname>{$list[policy].owner_firstname}</ownerFirstname>
+		<!--владелец, имя, строка 50 знаков; обязательно к заполнению-->
+		<ownerPatronymicname>{$list[policy].owner_patronymicname}</ownerPatronymicname>
+		<!--владелец, отчество, строка 50 знаков; обязательно к заполнению-->
+		<ownerPosition>{$list[policy].owner_position}</ownerPosition>
+		<!--владелец, должность, строка 150 знаков; обязательно к заполнению, если юридическое лицо-->
+		<ownerGround>{$list[policy].owner_ground}</ownerGround>
+		<!--владелец, действует на основании, строка 50 знаков; обязательно к заполнению, если юридическое лицо-->
+		<ownerDateofbirth>{$list[policy].owner_dateofbirth}</ownerDateofbirth>
+		<!--владелец, дата рождения, yyyy-mm-dd; обязательно к заполнению, если физ лицо-->
+		<ownerPassportSeries>{$list[policy].owner_passport_series}</ownerPassportSeries>
+		<!--владелец, паспорт, серия , строка 4 знака; обязательно к заполнению, если физ лицо-->
+		<ownerPassportNumber>{$list[policy].owner_passport_number}</ownerPassportNumber>
+		<!--владелец, паспорт, номер , строка 13 знаков; обязательно к заполнению, если физ лицо-->
+		<ownerPassportPlace>{$list[policy].owner_passport_place}</ownerPassportPlace>
+		<!--владелец, паспорт, место выдачи, строка 100 знаков; обязательно к заполнению, если физ лицо-->
+		<ownerPassportDate>{$list[policy].owner_passport_date}</ownerPassportDate>
+		<!--владелец, паспорт, дата выдачи, yyyy-mm-dd; обязательно к заполнению, если физ лицо-->
+		<ownerIdentificationCode>{$list[policy].owner_identification_code}</ownerIdentificationCode>
+		<!--владелец, ИНН, строка 10 знаков; обязательно к заполнению, если физ лицо-->
+		<ownerPhone>{$list[policy].owner_phone}</ownerPhone>
+		<!--владелец, телефон, строка 15 знаков; обязательно к заполнению-->
+		<ownerRegionsTitle>{$list[policy].owner_regions_title}</ownerRegionsTitle>
+		<!--владелец, место регистрации, область, строка 50 знаков; обязательно к заполнению-->
+		<ownerArea>{$list[policy].owner_area}</ownerArea>
+		<!--владелец, место регистрации, район, строка 50 знаков; обязательно к заполнению-->
+		<ownerCity>{$list[policy].owner_city}</ownerCity>
+		<!--владелец, место регистрации, город, строка 50 знаков; обязательно к заполнению-->
+		<ownerStreetTypesTitle>{$list[policy].owner_street_types_title}</ownerStreetTypesTitle>
+		<!--владелец, место регистрации, тип улицы, строка 20 знаков; обязательно к заполнению-->
+		<ownerStreet>{$list[policy].owner_street}</ownerStreet>
+		<!--владелец, место регистрации, название улицы, строка 50 знаков; обязательно к заполнению-->
+		<ownerHouse>{$list[policy].owner_house}</ownerHouse>
+		<!--владелец, место регистрации, дом, строка 20 знаков; обязательно к заполнению-->
+		<ownerFlat>{$list[policy].owner_flat}</ownerFlat>
+		<!--владелец, место регистрации, квартира, строка 15 знаков, не обязательно к заполнению-->
+		<insurerCompany>{$list[policy].insurer_company}</insurerCompany>
+		<!--страховая компания, строка 150 знаков; обязательно к заполнению, если юридическое лицо-->
+		<insurerBank>{$list[policy].insurer_bank}</insurerBank>
+		<!--страхователь, банк, строка 50 знаков; обязательно к заполнению, если юридическое лицо-->
+		<insurerBankAccount>{$list[policy].insurer_bank_account}</insurerBankAccount>
+		<!--страхователь, расчетный счет, строка 20 знаков; обязательно к заполнению, если юридическое лицо-->
+		<insurerBankMFO>{$list[policy].insurer_bank_mfo}</insurerBankMFO>
+		<!--страхователь, МФО, строка 6 знаков; обязательно к заполнению, если юридическое лицо-->
+		<insurerEDRPOU>{$list[policy].insurer_edrpou}</insurerEDRPOU>
+		<!--страхователь, ЕДРПОУ, строка 10 знаков; обязательно к заполнению, если юридическое лицо-->
+		<insurerLastname>{$list[policy].insurer_lastname}</insurerLastname>
+		<!--страхователь, фамилия, строка 50 знаков; обязательно к заполнению-->
+		<insurerFirstname>{$list[policy].insurer_firstname}</insurerFirstname>
+		<!--страхователь, имя, строка 50 знаков; обязательно к заполнению-->
+		<insurerPatronymicname>{$list[policy].insurer_patronymicname}</insurerPatronymicname>
+		<!--страхователь, отчество, строка 50 знаков; обязательно к заполнению-->
+		<insurerPosition>{$list[policy].insurer_position}</insurerPosition>
+		<!--страхователь, должность, строка 150 знаков; обязательно к заполнению, если юридическое лицо-->
+		<insurerGround>{$list[policy].insurer_ground}</insurerGround>
+		<!--страхователь, действует на основании, строка 50 знаков; обязательно к заполнению, если юридическое лицо-->
+		<insurerDateofbirth>{$list[policy].insurer_dateofbirth}</insurerDateofbirth>
+		<!--страхователь, дата рождения, yyyy-mm-dd; обязательно к заполнению, если физ лицо-->
+		<insurerPassportSeries>{$list[policy].insurer_passport_series}</insurerPassportSeries>
+		<!--страхователь, паспорт, серия, строка 4 знака; обязательно к заполнению, если физ лицо-->
+		<insurerPassportNumber>{$list[policy].insurer_passport_number}</insurerPassportNumber>
+		<!--страхователь, паспорт, номер, строка 13 знаков; обязательно к заполнению, если физ лицо-->
+		<insurerPassportPlace>{$list[policy].insurer_passport_place}</insurerPassportPlace>
+		<!--страхователь, паспорт, место выдачи, строка 100 знаков; обязательно к заполнению, если физ лицо-->
+		<insurerPassportDate>{$list[policy].insurer_passport_date}</insurerPassportDate>
+		<!--страхователь, паспорт, дата выдачи; обязательно к заполнению, если физ лицо-->
+		<insurerDriverLicenceSeries>{$list[policy].insurer_driver_licence_series}</insurerDriverLicenceSeries>
+		<!--страхователь, техпаспорт, серия, строка 4 знака; обязательно к заполнению, если физ лицо-->
+		<insurerDriverLicenceNumber>{$list[policy].insurer_driver_licence_number}</insurerDriverLicenceNumber>
+		<!--страхователь, техпаспорт, номер, строка 9 знаков; обязательно к заполнению, если физ лицо-->
+		<insurerDriverLicenceDate>{$list[policy].insurer_driver_licence_date}</insurerDriverLicenceDate>
+		<!--страхователь, техпаспорт, дата выдачи, yyyy-mm-dd; обязательно к заполнению, если физ лицо-->
+		<insurerIdentificationCode>{$list[policy].insurer_identification_code}</insurerIdentificationCode>
+		<!--страхователь, ИНН, строка 10 знаков; обязательно к заполнению, если физ лицо-->
+		<insurerPhone>{$list[policy].insurer_phone}</insurerPhone>
+		<!--страхователь, телефон, строка 15 знаков; обязательно к заполнению-->
+		<insurerRegionsTitle>{$list[policy].insurer_regions_title}</insurerRegionsTitle>
+		<!--страхователь, место регистрации, область, строка 50 знаков; обязательно к заполнению-->
+		<insurerArea>{$list[policy].insurer_area}</insurerArea>
+		<!--страхователь, место регистрации, район, строка 50 знаков; обязательно к заполнению-->
+		<insurerCity>{$list[policy].insurer_city}</insurerCity>
+		<!--страхователь, место регистрации, город, строка 50 знаков; обязательно к заполнению-->
+		<insurerStreetTypesTitle>{$list[policy].insurer_street_types_title}</insurerStreetTypesTitle>
+		<!--страхователь, место регистрации, тип улицы, строка 50 знаков; обязательно к заполнению-->
+		<insurerStreet>{$list[policy].insurer_street}</insurerStreet>
+		<!--страхователь, место регистрации, название улицы, строка 50 знаков; обязательно к заполнению-->
+		<insurerHouse>{$list[policy].insurer_house}</insurerHouse>
+		<!--страхователь, место регистрации, номер дома, строка 20 знаков; обязательно к заполнению-->
+		<insurerFlat>{$list[policy].insurer_flat}</insurerFlat>
+		<!--страхователь, место регистрации, номер квартиры, строка 15 знаков; обязательно к заполнению-->
+		<assuredTitle>{$list[policy].assured_title}</assuredTitle>
+		<!--выгодоприобретатель, строка 200 знаков; обязательно к заполнению-->
+		<assuredIdentificationCode>{$list[policy].assured_identification_code}</assuredIdentificationCode>
+		<!--выгодоприобретатель, ИНН, строка 10 знаков; обязательно к заполнению-->
+		<assuredAddress>{$list[policy].assured_address}</assuredAddress>
+		<!--выгодоприобретатель, адрес, строка 100 знаков; обязательно к заполнению-->
+		<assuredPhone>{$list[policy].assured_phone}</assuredPhone>
+		<!--выгодоприобретатель, телефон, строка 15 знаков; обязательно к заполнению-->
+		<agentsId>{$list[policy].agents_id}</agentsId>
+		<!--агент, фамилия, строка до 40 знаков; обязательно к заполнению-->
+		<agentLastname>{$list[policy].agent_lastname}</agentLastname>
+		<!--агент, фамилия, строка до 40 знаков; обязательно к заполнению-->
+		<agentFirstname>{$list[policy].agent_firstname}</agentFirstname>
+		<!--агент, имя, строка до 30 знаков; обязательно к заполнению-->
+		<agentPatronymicname>{$list[policy].agent_patronymicname}</agentPatronymicname>
+		<!--агент, отчество, строка до 30 знаков; обязательно к заполнению-->
+		<cars>
+			<!--траспортные средства-->
+{section name="car" loop=$list[policy].cars}
+			<car>
+				<car_typesTitle>{$list[policy].cars[car].car_type_title}</car_typesTitle>
+				<!--тип транспортного средства-->
+				<brand>{$list[policy].cars[car].brand}</brand>
+				<!--марка, строка 50 знаков; обязательно к заполнению-->
+				<model>{$list[policy].cars[car].model}</model>
+				<!--модель, строка 50 знаков; обязательно к заполнению-->
+				<carPrice>{$list[policy].cars[car].car_price}</carPrice>
+				<!--стоимость автомобиля в грн., decimal(10,2); обязательно к заполнению-->
+				<engine_size>{$list[policy].cars[car].engine_size}</engine_size>
+				<!--объем двигателя см3, целое; обязательно к заполнению-->
+				<year>{$list[policy].cars[car].year}</year>
+				<!--год выпуска; обязательно к заполнению-->
+				<race>{$list[policy].cars[car].race}</race>
+				<!--пробег, целое; обязательно к заполнению-->
+				<colorsTitle>{$list[policy].cars[car].colors_title}</colorsTitle>
+				<!--цвет, строка до 50 знаков; обязательно к заполнению-->
+				<numberPlaces>{$list[policy].cars[car].number_places}</numberPlaces>
+				<!--количество мест; обязательно к заполнению-->
+				<shassi>{$list[policy].cars[car].shassi}</shassi>
+				<!--номер кузова, строка до 40 знаков; обязательно к заполнению-->
+				<sign>{$list[policy].cars[car].sign}</sign>
+				<!--гос. номер, строка 10 знаков; обязательно к заполнению-->
+				<protectionMulTLock>{$list[policy].cars[car].protection_multlock}</protectionMulTLock>
+				<!--наличие мультилока, 0 или 1; обязательно к заполнению-->
+				<protectionImmobilaser>{$list[policy].cars[car].protection_immobilaser}</protectionImmobilaser>
+				<!--наличие имобилайзера, 0 или 1; обязательно к заполнению-->
+				<protectionManual>{$list[policy].cars[car].protection_manual}</protectionManual>
+				<!--наличие механической защиты, 0 или 1; обязательно к заполнению-->
+				<protectionSignalling>{$list[policy].cars[car].protection_signalling}</protectionSignalling>
+				<!--наличие сигнализации, 0 или 1; обязательно к заполнению-->
+				<deductiblesValue0>{$list[policy].cars[car].deductibles_value0}</deductiblesValue0>
+				<!--размер франшизы (не угон), decimal(10,2); обязательно к заполнению-->
+				<deductiblesAbsolute0>{$list[policy].cars[car].deductibles_absolute0}</deductiblesAbsolute0>
+				<!--размерность франшизы (не угон); 0 в %, 1 в грн.; обязательно к заполнению-->
+				<deductiblesValue1>{$list[policy].cars[car].deductibles_value1}</deductiblesValue1>
+				<!--размер франшизы (угон), decimal(10,2); обязательно к заполнению-->
+				<deductiblesAbsolute1>{$list[policy].cars[car].deductibles_absolute1}</deductiblesAbsolute1>
+				<!--размерность франшизы (угон); 0 в %, 1 в грн.; обязательно к заполнению-->
+				<rateKASKO>{$list[policy].cars[car].rate_kasko}</rateKASKO>
+				<!--тариф в % на авто, decimal(6,3); обязательно к заполнению-->
+				<amountKASKO>{$list[policy].cars[car].amount_kasko}</amountKASKO>
+				<!--тариф в грн. на авто, decimal(10,2); обязательно к заполнению-->
+				<priceEquipment>{$list[policy].cars[car].price_equipment}</priceEquipment>
+				<!--страховая сумма в грн. на дополнительное оборудование, decimal(10,2); обязательно к заполнению-->
+				<rateEquipment>{$list[policy].cars[car].rate_equipment}</rateEquipment>
+				<!--тариф в % на дополнительное оборудование, decimal(6,3); обязательно к заполнению-->
+				<amountEquipment>{$list[policy].cars[car].amount_equipment}</amountEquipment>
+				<!--тариф в грн. на дополнительное оборудование, decimal(10,2); обязательно к заполнению-->
+				<amount>{$list[policy].cars[car].amount}</amount>
+				<!--тариф (на авто + доп. оборудование) в грн., decimal(10,2); обязательно к заполнению-->
+				<!--комиссии-->
+				<equipment>
+					<!--дополнительное оборудование-->
+{section name="item" loop=$list[policy].cars[car].equipment}
+					<item>
+						<title>{$list[policy].cars[car].equipment[item].title}</title>
+						<!--наименования, строка до 50 знаков-->
+						<brand>{$list[policy].cars[car].equipment[item].brand}</brand>
+						<!--марка, строка до 20 знаков-->
+						<model>{$list[policy].cars[car].equipment[item].model}</model>
+						<!--модель, строка до 20 знаков-->
+						<price>{$list[policy].cars[car].equipment[item].price}</price>
+						<!--стоимость в грн., decimal(10,2)-->
+					</item>
+{/section}
+				</equipment>
+			</car>
+{/section}
+		</cars>
+		<persons>
+			<!--другие застрахованные-->
+{section name="person" loop=$list[policy].persons}
+			<person>
+				<lastname>{$list[policy].persons[person].lastname}</lastname>
+				<!--фамилия, строка до 50 знаков; обязательно к заполнению-->
+				<firstname>{$list[policy].persons[person].firstname}</firstname>
+				<!--имя, строка до 50 знаков; обязательно к заполнению-->
+				<patronymicname>{$list[policy].persons[person].patronymicname}</patronymicname>
+				<!--отчество, строка до 50 знаков; обязательно к заполнению-->
+				<driverLicenceSeries>{$list[policy].persons[person].driver_licence_series}</driverLicenceSeries>
+				<!--водительские права, серия, строка 4 знака; обязательно к заполнению-->
+				<driverLicenceNumber>{$list[policy].persons[person].driver_licence_number}</driverLicenceNumber>
+				<!--водительские права, номер, строка 20 знака; обязательно к заполнению-->
+				<driverLicenceDate>{$list[policy].persons[person].driver_licence_date}</driverLicenceDate>
+				<!--водительские права, дата выдачи; обязательно к заполнению-->
+			</person>
+{/section}
+		</persons>
+		<files>
+			<!--приложенные документы-->
+{section name="file" loop=$list[policy].files}
+			<file>{$list[policy].files[file].file}</file>
+			<!--название файла, до 30 знаков; обязательно к заполнению-->
+{/section}
+		</files>
+	</policy>
+{/section}
+</policies>

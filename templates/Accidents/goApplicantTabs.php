@@ -1,0 +1,6 @@
+<?if($action != 'insert') {?>
+<ul id="tabs">
+	<li <?=(($data['owner_types_id'] == 2) ? 'class="active"' : '')?>><a href="/?do=Accidents|changeApplicant&accidents_id=<?=$_POST['applications']['victim_accidents_id']?>&victim_accidents_id=<?=$_POST['applications']['victim_accidents_id']?>&insurer_accidents_id=<?=$_POST['applications']['insurer_accidents_id']?>&owner_types_id=2&mode=<?=$this->mode?>&product_types_id=<?=$data['product_types_id']?>"><span>Потерпілий - <?=$this->getNumber($_POST['applications']['victim_accidents_id'])?></span></a></li>
+	<li <?=(($data['owner_types_id'] == 1) ? 'class="active"' : '')?>><a href="/?do=Accidents|changeApplicant&accidents_id=<?=$_POST['applications']['insurer_accidents_id']?>&victim_accidents_id=<?=$_POST['applications']['victim_accidents_id']?>&insurer_accidents_id=<?=$_POST['applications']['insurer_accidents_id']?>&owner_types_id=1&mode=<?=$this->mode?>&product_types_id=<?=$data['product_types_id']?>"><span>Страхувальник - <?=$this->getNumber($_POST['applications']['insurer_accidents_id'])?></span></a></li>
+</ul>
+<?}?>

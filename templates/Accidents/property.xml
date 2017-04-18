@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resultset>
+	{section name="roll" loop=$list}
+ 	<property>
+		<number>{$list[roll].number}</number>
+		<date>{$list[roll].date}</date>
+		<datetime>{$list[roll].datetime}</datetime>
+		<assistanceDate>{$list[roll].assistance_date}</assistanceDate>
+        <amountRough>{$list[roll].amount_rough}</amountRough>
+
+
+		<policiesNumber>{$list[roll].policies_number}</policiesNumber>
+		<applicationDate>{$list[roll].application_date}</applicationDate>
+
+
+
+        <beginDateTime>{$list[roll].begin_datetime}</beginDateTime>
+		<endDateTime>{$list[roll].end_datetime}</endDateTime>
+
+
+	</property>
+	{/section}
+</resultset>

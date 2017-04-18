@@ -1,0 +1,8 @@
+match(function() { return this.ctx.name; })(
+	def()(function() {
+			if (this.ctx.mods)	this.ctx.mods['name'] = this.ctx.name;
+
+			return applyNext();
+	})
+);
+
